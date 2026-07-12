@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frequently Asked Questions — AESOP Solutions</title>
+<meta name="description" content="Common questions about AESOP Solutions reports, pricing, the money-back guarantee, and how the process works.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   AESOP Solutions — Shared Design System
+   Concept 1 (Analyst's Desk) + Concept 2 nav
+   ============================================ */
+
+
+:root {
+  --bg:       #FAFAF8;
+  --ink:      #16213E;
+  --slate:    #3D5A80;
+  --amber:    #E0A458;
+  --grey:     #6B7B8C;
+  --green:    #2D9D78;
+  --line:     #E4E1DA;
+  --panel:    #FFFFFF;
+  --warn-bg:  #FFF7EA;
+  --warn-bdr: #F0D9AE;
+  --warn-txt: #8A5A1E;
+  --draft-bg: #FFF3CD;
+  --draft-bdr:#FFD966;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+.wrap { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+.wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+
+/* ── TYPOGRAPHY ── */
+h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 500; line-height: 1.1; letter-spacing: -0.01em; }
+h1 { font-size: clamp(36px, 5vw, 52px); }
+h2 { font-size: clamp(28px, 3.5vw, 36px); }
+h3 { font-size: 22px; }
+p  { color: var(--grey); line-height: 1.65; }
+.lead { font-size: 18px; color: var(--grey); line-height: 1.7; }
+
+/* ── NAV (Concept 2 structure, Concept 1 palette) ── */
+.site-nav {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  position: sticky; top: 0; z-index: 100;
+}
+.site-nav .wrap {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding-top: 20px; padding-bottom: 20px;
+}
+.nav-logo {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800; font-size: 19px;
+  letter-spacing: -0.02em; color: var(--ink);
+}
+.nav-logo span { color: var(--slate); }
+.nav-links {
+  display: flex; gap: 34px;
+  font-size: 14.5px; color: var(--grey); font-weight: 500;
+  list-style: none;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  background: var(--ink); color: #fff;
+  padding: 10px 20px; border-radius: 7px;
+  font-size: 13.5px; font-weight: 600;
+  transition: background .15s;
+}
+.nav-cta:hover { background: var(--slate); }
+.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+
+/* ── FOOTER ── */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 40px 0 32px;
+  margin-top: 80px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 36px;
+}
+.footer-brand .nav-logo { margin-bottom: 10px; }
+.footer-brand p { font-size: 13.5px; color: var(--grey); line-height: 1.55; }
+.footer-col h5 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink); margin-bottom: 14px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-col ul a { font-size: 14px; color: var(--grey); }
+.footer-col ul a:hover { color: var(--ink); }
+.footer-bottom {
+  border-top: 1px solid var(--line); padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 13px; color: var(--grey);
+}
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { color: var(--grey); }
+.footer-legal a:hover { color: var(--ink); }
+
+/* ── BUTTONS ── */
+.btn-primary {
+  display: inline-block; background: var(--ink); color: #fff;
+  padding: 15px 28px; border-radius: 7px; font-weight: 600; font-size: 15.5px;
+  transition: background .15s; border: none; cursor: pointer;
+}
+.btn-primary:hover { background: var(--slate); }
+.btn-outline {
+  display: inline-block; color: var(--ink);
+  padding: 14px 28px; border-radius: 7px; font-weight: 600; font-size: 15px;
+  border: 1.5px solid var(--ink); transition: all .15s;
+}
+.btn-outline:hover { background: var(--ink); color: #fff; }
+
+/* ── GUARANTEE STRAP ── */
+.guarantee-strap {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--warn-bg); border: 1px solid var(--warn-bdr);
+  padding: 10px 16px; border-radius: 8px;
+  font-size: 14px; font-weight: 600; color: var(--warn-txt);
+}
+
+/* ── EYEBROW ── */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: var(--slate);
+  letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px;
+}
+.eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
+
+/* ── SECTIONS ── */
+.section { padding: 88px 0; }
+.section-alt { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.section-dark { background: var(--ink); padding: 64px 0; }
+.section-head { max-width: 640px; margin-bottom: 48px; }
+.section-head.center { text-align: center; margin: 0 auto 48px; }
+.section-head h2 { margin-bottom: 14px; }
+
+/* ── FORMS ── */
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 7px; }
+.form-group .hint { font-size: 12.5px; color: var(--grey); margin-top: 6px; }
+.form-control {
+  width: 100%; border: 1.5px solid var(--line); border-radius: 8px;
+  padding: 13px 15px; font-family: 'Inter', sans-serif; font-size: 14.5px;
+  background: #fff; color: var(--ink); transition: border-color .15s;
+}
+.form-control:focus { outline: none; border-color: var(--slate); }
+textarea.form-control { min-height: 110px; resize: vertical; }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.gate-box {
+  border: 1.5px dashed var(--line); border-radius: 10px; padding: 18px;
+  background: #fff;
+}
+.gate-box h5 { font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+.gate-or { text-align: center; font-size: 12.5px; color: var(--grey); font-weight: 600; letter-spacing: 0.03em; padding: 4px 0; }
+
+/* ── DRAFT BANNER ── */
+.draft-banner {
+  background: var(--draft-bg); border: 1.5px solid var(--draft-bdr);
+  padding: 14px 20px; border-radius: 8px; margin-bottom: 32px;
+  font-size: 14px; font-weight: 600; color: #7A5C00;
+  display: flex; align-items: flex-start; gap: 10px;
+}
+
+/* ── PROSE (for legal/content pages) ── */
+.prose h2 { font-size: 22px; margin: 40px 0 14px; }
+.prose h3 { font-size: 17px; font-family: 'Inter', sans-serif; font-weight: 700; margin: 28px 0 10px; color: var(--ink); }
+.prose p  { color: var(--grey); margin-bottom: 16px; }
+.prose ul, .prose ol { padding-left: 24px; margin-bottom: 16px; color: var(--grey); }
+.prose li { margin-bottom: 8px; }
+.prose a  { color: var(--slate); text-decoration: underline; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px; }
+.prose th { background: var(--ink); color: #fff; padding: 10px 14px; text-align: left; font-size: 13px; }
+.prose td { padding: 10px 14px; border-bottom: 1px solid var(--line); color: var(--grey); vertical-align: top; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-mobile-toggle { display: block; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .form-row-2 { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+@media (max-width: 600px) {
+  .wrap, .wrap-narrow { padding: 0 20px; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+</style>
+<style>
+  .page-hero { padding: 72px 0 56px; border-bottom: 1px solid var(--line); }
+  .page-hero h1 { margin-bottom: 14px; }
+  .faq-body { padding: 64px 0 80px; }
+  .faq-section { margin-bottom: 56px; }
+  .faq-section-title {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--slate); margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--line);
+  }
+  .faq-item { padding: 28px 0; border-bottom: 1px solid var(--line); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q {
+    font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500;
+    color: var(--ink); margin-bottom: 14px; line-height: 1.3;
+  }
+  .faq-a { font-size: 15.5px; color: var(--grey); line-height: 1.7; }
+  .faq-a p { margin-bottom: 12px; }
+  .faq-a p:last-child { margin-bottom: 0; }
+  .faq-a a { color: var(--slate); text-decoration: underline; }
+  .faq-cta {
+    background: var(--ink); border-radius: 16px; padding: 44px 48px;
+    text-align: center; margin-top: 56px;
+  }
+  .faq-cta h2 { color: #fff; margin-bottom: 10px; }
+  .faq-cta p { color: #A8B3CC; margin-bottom: 26px; }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-logo">AESOP <span>Solutions</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#examples">Example reports</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="why-aesop.html">Why AESOP?</a></li>
+      <li><a href="faq.html" style="color:var(--ink)">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="index.html#request" class="nav-cta">Request a report</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="wrap-narrow">
+    <div class="eyebrow">FAQ</div>
+    <h1>Frequently Asked Questions</h1>
+    <p class="lead">Everything you need to know about AESOP Solutions reports, pricing, and the process.</p>
+  </div>
+</section>
+
+<section class="faq-body">
+  <div class="wrap-narrow">
+
+    <!-- PRICING & ACCESS -->
+    <div class="faq-section">
+      <div class="faq-section-title">Pricing &amp; access</div>
+
+      <div class="faq-item">
+        <div class="faq-q">Why is AESOP available here at a fraction of the licence cost?</div>
+        <div class="faq-a"><p>Licences for the underlying AESOP technology sell for $1 million or more. That works for large government departments and the biggest businesses — but it shuts out small businesses, non-profits, and countless organisations that could benefit just as much. So instead of asking you to license the technology, we run the reports on our own AESOP infrastructure and deliver the results to you directly, at prices designed to make the power of the system available to all.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What are the pricing tiers?</div>
+        <div class="faq-a">
+          <p>There are three tiers, all priced in USD:</p>
+          <p><strong>Public — $2,000:</strong> Your anonymised report is added to our public report library one week after delivery. Includes the full report, sources, and executive summary.</p>
+          <p><strong>Private — $5,000:</strong> Your report stays entirely private — it is never published. Includes one round of clarification and rework.</p>
+          <p><strong>Tailored — $10,000:</strong> Built incorporating your own data and context for the most specific result. Private. Turnaround confirmed at order.</p>
+          <p>If you've had a private report produced with us and want a further related report, we charge 50% of the standard tier price.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Do I pay before or after the report is produced?</div>
+        <div class="faq-a"><p>Payment is taken upfront via Stripe when you submit your request. Once we've received your submission, we may send you some clarifying questions — only when we genuinely need them, not as a standard step. We then produce and deliver your report.</p></div>
+      </div>
+    </div>
+
+    <!-- THE GUARANTEE -->
+    <div class="faq-section">
+      <div class="faq-section-title">The guarantee</div>
+
+      <div class="faq-item">
+        <div class="faq-q">What if I'm not happy with my report?</div>
+        <div class="faq-a"><p>Every report is covered by our no-quibble, money-back value guarantee. We know that even a few thousand dollars is a significant sum for many organisations, so if the report doesn't deliver value for you, just tell us — we'll process your refund immediately, no questions asked.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Do I have to explain why I want a refund?</div>
+        <div class="faq-a"><p>No. We'd genuinely welcome hearing where we fell short so we can improve, but you're under no obligation to tell us. We trust our outputs to deliver, and we trust you to be honest with us.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How long do I have to request a refund?</div>
+        <div class="faq-a"><p>You have 7 days from delivery of your report to invoke the guarantee. Simply contact us at <a href="mailto:[REPORTS EMAIL — TO BE CONFIRMED BY TIM]">[REPORTS EMAIL — TO BE CONFIRMED BY TIM]</a> and we'll process the refund immediately.</p></div>
+      </div>
+    </div>
+
+    <!-- THE REPORTS -->
+    <div class="faq-section">
+      <div class="faq-section-title">The reports</div>
+
+      <div class="faq-item">
+        <div class="faq-q">Will this really work for a smaller organisation like mine?</div>
+        <div class="faq-a"><p>We've seen AESOP be transformational for our largest clients, and we built this service precisely so that organisations of every size can experience the same. Our hope is that it proves just as transformational for you.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What does a report actually look like?</div>
+        <div class="faq-a"><p>Every report is a properly-structured document with a front cover, a contents page with hyperlinks through to each section, an executive summary designed to get you to the right sections quickly, the full analysis, and a sources and references section at the end. You can download example reports from our <a href="index.html#examples">examples section</a> to see the format and depth of output.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What kinds of questions work best?</div>
+        <div class="faq-a">
+          <p>Focused, contextual questions produce significantly more useful reports than broad ones. The best questions tell us what you're trying to decide, the sector or market you're operating in, and any specific constraints or concerns.</p>
+          <p>For example: <em>"Should we enter the Southeast Asian logistics market in the next 18 months? We're a B2B SaaS business primarily serving mid-market financial services, and our main concern is whether local regulations and competitor positioning make entry viable within our investment window."</em></p>
+          <p>Compare that to: <em>"Is Southeast Asia a good market?"</em> — which would produce a much less actionable result.</p>
+          <p>Our request form has two fields — one for your central question, one for amplifying detail — to help you structure this. If your question needs more context, we'll follow up before we start.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How long does it take?</div>
+        <div class="faq-a"><p>We aim to deliver most reports within a few working days of receiving your submission and any clarifying information we need. Tailored reports, which incorporate your own data, may take slightly longer. We'll confirm an expected delivery window when we confirm your order.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is this just AI generating an answer, or is a human involved?</div>
+        <div class="faq-a"><p>Both — and the human involvement is what makes it different. AESOP runs your question through a structured, multi-step analytical workflow, but a human analyst directs, reviews, and validates every stage. Nothing ships without analyst sign-off. The result is a report with the coverage and depth that AI enables, combined with the judgement and quality control that only a human can provide.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Are the reports referenced?</div>
+        <div class="faq-a"><p>Yes. Every report includes a sources and references section so you can trace conclusions back to their basis. This is a requirement, not an option — it's part of what makes the reports usable in a professional or organisational context.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I use the report however I like?</div>
+        <div class="faq-a"><p>Your report is for your own internal use. You may share it within your organisation. You may not resell it, publish it as your own work, or use it to create competing services without our written agreement. See our <a href="terms.html">Terms &amp; Conditions</a> for the full detail.</p></div>
+      </div>
+    </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What format is the report delivered in?</div>
+        <div class="faq-a"><p>Reports are delivered as a Microsoft Word document (.docx) by email, along with a PDF version. Every report includes a front cover, a hyperlinked table of contents, an executive summary, the full analysis in numbered sections, a glossary of abbreviations, and a sources and references section. If you need a different format, let us know when you submit your request and we will do our best to accommodate you.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I request revisions?</div>
+        <div class="faq-a"><p>Private and Tailored tier reports include one round of clarification and rework as standard. This covers cases where the report has not fully addressed your question or where you need a specific section developed further. It does not cover requests to change the analytical conclusions, or requests that amount to a substantially different question. If you need more than one round of revision, we will discuss what is possible and whether it falls within the original scope or constitutes additional work.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is there a confidentiality agreement or NDA available?</div>
+        <div class="faq-a"><p>Our standard Terms and Conditions include confidentiality obligations on both sides: we do not share your question, context, or report with any third party, and your information is used solely for the purpose of producing your report. If you require a formal NDA before submitting, please <a href="contact.html">contact us</a> and we will arrange one before you proceed.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Can I cite or reference the report externally?</div>
+        <div class="faq-a"><p>Yes, subject to the terms of your tier. You may cite the report and reference its findings in your own work, presentations, or publications, provided you attribute it to AESOP Solutions. You may not reproduce or republish the report in full, or use it as the basis for a competing analytical service. If you need broader usage rights — for example, to include the report in a client deliverable or published research — please <a href="contact.html">contact us</a> to discuss a suitable arrangement.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What topics or industries does AESOP cover?</div>
+        <div class="faq-a"><p>AESOP Solutions can address analytical questions across virtually any topic or industry — from investment thesis validation and market entry analysis to regulatory exposure, competitive positioning, and policy research. The platform was originally developed for defence and national security intelligence, but its analytical methodology applies equally to commercial, financial, and policy questions. If you are unsure whether your question is a good fit, <a href="contact.html">get in touch</a> and we will tell you honestly whether we can add value.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">What happens if I need to cancel after submitting but before delivery?</div>
+        <div class="faq-a"><p>Because each report is produced specifically for your question and analytical work begins promptly after your submission is confirmed, we are not able to offer cancellation once production has started. However, our 7-day money-back guarantee means that if the completed report does not deliver value, you can request a full refund within 7 days of delivery — no questions asked. If you have a genuine emergency before we have started work, please <a href="contact.html">contact us</a> as soon as possible and we will do what we can.</p></div>
+      </div>
+
+
+    <!-- DATA & PRIVACY -->
+    <div class="faq-section">
+      <div class="faq-section-title">Data &amp; privacy</div>
+
+      <div class="faq-item">
+        <div class="faq-q">Where is my data held?</div>
+        <div class="faq-a">
+          <p>The AESOP platform is operated by our parent company, Integrity Defence Solutions Inc, on infrastructure hosted in the United States (Amazon Web Services). Data you submit — including your question, any supporting context, and your completed report — is transferred to and processed in the US for the purpose of producing your report.</p>
+          <p>We take data protection seriously regardless of where our clients are based. For UK clients, this transfer is covered by a UK International Data Transfer Agreement (IDTA) between IDS UK and IDS Inc. For US clients, data is handled in accordance with applicable US data protection standards. Payment data is processed by Stripe under its own terms and privacy policy.</p>
+          <p>See our <a href="privacy.html">Privacy Policy</a> for full details of what we collect, how we use it, and your rights.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Is payment secure?</div>
+        <div class="faq-a"><p>Yes. Payments are processed by Stripe, a PCI-DSS-compliant payment provider. We do not store your card details. Stripe processes payment data under its own terms as a data processor.</p></div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="faq-cta">
+      <h2>Still have a question?</h2>
+      <p>Get in touch and we'll get back to you.</p>
+      <a href="contact.html" class="btn-primary" style="margin-right:14px;">Contact us</a>
+      <a href="index.html#request" class="btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.3);">Request a report</a>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="nav-logo">AESOP <span>Solutions</span></div><p>Expert analytical reports, powered by AESOP and delivered by experienced analysts. A service of Integrity Defence Solutions UK Ltd.</p></div>
+      <div class="footer-col"><h5>Reports</h5><ul><li><a href="index.html#examples">Example reports</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#request">Request a report</a></li></ul></div>
+      <div class="footer-col"><h5>About</h5><ul><li><a href="why-aesop.html">Why AESOP?</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Legal</h5><ul><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms &amp; conditions</a></li><li><a href="cookies.html">Cookie policy</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>Integrity Defence Solutions UK Ltd · Company No. [COMPANY REG NO] · Registered in England &amp; Wales</div>
+      <div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="cookies.html">Cookies</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

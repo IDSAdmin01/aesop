@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AESOP Solutions — Expert Analytical Reports, On Demand</title>
+<meta name="description" content="Tell us your business question. Our analysts run it through AESOP — a structured, multi-step analytical workflow — and deliver a fully-referenced report, usually within days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   AESOP Solutions — Shared Design System
+   Concept 1 (Analyst's Desk) + Concept 2 nav
+   ============================================ */
+
+
+:root {
+  --bg:       #FAFAF8;
+  --ink:      #16213E;
+  --slate:    #3D5A80;
+  --amber:    #E0A458;
+  --grey:     #6B7B8C;
+  --green:    #2D9D78;
+  --line:     #E4E1DA;
+  --panel:    #FFFFFF;
+  --warn-bg:  #FFF7EA;
+  --warn-bdr: #F0D9AE;
+  --warn-txt: #8A5A1E;
+  --draft-bg: #FFF3CD;
+  --draft-bdr:#FFD966;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+.wrap { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+.wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+
+/* ── TYPOGRAPHY ── */
+h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 500; line-height: 1.1; letter-spacing: -0.01em; }
+h1 { font-size: clamp(36px, 5vw, 52px); }
+h2 { font-size: clamp(28px, 3.5vw, 36px); }
+h3 { font-size: 22px; }
+p  { color: var(--grey); line-height: 1.65; }
+.lead { font-size: 18px; color: var(--grey); line-height: 1.7; }
+
+/* ── NAV (Concept 2 structure, Concept 1 palette) ── */
+.site-nav {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  position: sticky; top: 0; z-index: 100;
+}
+.site-nav .wrap {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding-top: 20px; padding-bottom: 20px;
+}
+.nav-logo {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800; font-size: 19px;
+  letter-spacing: -0.02em; color: var(--ink);
+}
+.nav-logo span { color: var(--slate); }
+.nav-links {
+  display: flex; gap: 34px;
+  font-size: 14.5px; color: var(--grey); font-weight: 500;
+  list-style: none;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  background: var(--ink); color: #fff;
+  padding: 10px 20px; border-radius: 7px;
+  font-size: 13.5px; font-weight: 600;
+  transition: background .15s;
+}
+.nav-cta:hover { background: var(--slate); }
+.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+
+/* ── FOOTER ── */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 40px 0 32px;
+  margin-top: 80px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 36px;
+}
+.footer-brand .nav-logo { margin-bottom: 10px; }
+.footer-brand p { font-size: 13.5px; color: var(--grey); line-height: 1.55; }
+.footer-col h5 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink); margin-bottom: 14px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-col ul a { font-size: 14px; color: var(--grey); }
+.footer-col ul a:hover { color: var(--ink); }
+.footer-bottom {
+  border-top: 1px solid var(--line); padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 13px; color: var(--grey);
+}
+.footer-legal { display: flex; gap: 20px; }
+.footer-legal a { color: var(--grey); }
+.footer-legal a:hover { color: var(--ink); }
+
+/* ── BUTTONS ── */
+.btn-primary {
+  display: inline-block; background: var(--ink); color: #fff;
+  padding: 15px 28px; border-radius: 7px; font-weight: 600; font-size: 15.5px;
+  transition: background .15s; border: none; cursor: pointer;
+}
+.btn-primary:hover { background: var(--slate); }
+.btn-outline {
+  display: inline-block; color: var(--ink);
+  padding: 14px 28px; border-radius: 7px; font-weight: 600; font-size: 15px;
+  border: 1.5px solid var(--ink); transition: all .15s;
+}
+.btn-outline:hover { background: var(--ink); color: #fff; }
+
+/* ── GUARANTEE STRAP ── */
+.guarantee-strap {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--warn-bg); border: 1px solid var(--warn-bdr);
+  padding: 10px 16px; border-radius: 8px;
+  font-size: 14px; font-weight: 600; color: var(--warn-txt);
+}
+
+/* ── EYEBROW ── */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: var(--slate);
+  letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px;
+}
+.eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
+
+/* ── SECTIONS ── */
+.section { padding: 88px 0; }
+.section-alt { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.section-dark { background: var(--ink); padding: 64px 0; }
+.section-head { max-width: 640px; margin-bottom: 48px; }
+.section-head.center { text-align: center; margin: 0 auto 48px; }
+.section-head h2 { margin-bottom: 14px; }
+
+/* ── FORMS ── */
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 7px; }
+.form-group .hint { font-size: 12.5px; color: var(--grey); margin-top: 6px; }
+.form-control {
+  width: 100%; border: 1.5px solid var(--line); border-radius: 8px;
+  padding: 13px 15px; font-family: 'Inter', sans-serif; font-size: 14.5px;
+  background: #fff; color: var(--ink); transition: border-color .15s;
+}
+.form-control:focus { outline: none; border-color: var(--slate); }
+textarea.form-control { min-height: 110px; resize: vertical; }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.gate-box {
+  border: 1.5px dashed var(--line); border-radius: 10px; padding: 18px;
+  background: #fff;
+}
+.gate-box h5 { font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+.gate-or { text-align: center; font-size: 12.5px; color: var(--grey); font-weight: 600; letter-spacing: 0.03em; padding: 4px 0; }
+
+/* ── DRAFT BANNER ── */
+.draft-banner {
+  background: var(--draft-bg); border: 1.5px solid var(--draft-bdr);
+  padding: 14px 20px; border-radius: 8px; margin-bottom: 32px;
+  font-size: 14px; font-weight: 600; color: #7A5C00;
+  display: flex; align-items: flex-start; gap: 10px;
+}
+
+/* ── PROSE (for legal/content pages) ── */
+.prose h2 { font-size: 22px; margin: 40px 0 14px; }
+.prose h3 { font-size: 17px; font-family: 'Inter', sans-serif; font-weight: 700; margin: 28px 0 10px; color: var(--ink); }
+.prose p  { color: var(--grey); margin-bottom: 16px; }
+.prose ul, .prose ol { padding-left: 24px; margin-bottom: 16px; color: var(--grey); }
+.prose li { margin-bottom: 8px; }
+.prose a  { color: var(--slate); text-decoration: underline; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px; }
+.prose th { background: var(--ink); color: #fff; padding: 10px 14px; text-align: left; font-size: 13px; }
+.prose td { padding: 10px 14px; border-bottom: 1px solid var(--line); color: var(--grey); vertical-align: top; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-mobile-toggle { display: block; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .form-row-2 { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+@media (max-width: 600px) {
+  .wrap, .wrap-narrow { padding: 0 20px; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+</style>
+<style>
+  /* ── HERO ── */
+  .hero { padding: 80px 0 88px; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: center; }
+  .hero h1 { margin-bottom: 22px; }
+  .hero h1 em { font-style: italic; color: var(--slate); }
+  .hero .lead { margin-bottom: 26px; max-width: 480px; }
+  .hero-cta-row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-top: 30px; }
+  .btn-ghost {
+    color: var(--ink); font-weight: 600; font-size: 15px;
+    padding: 14px 8px; border-bottom: 2px solid var(--line); display: inline-block;
+  }
+
+  /* ── WORKFLOW PANEL (signature element) ── */
+  .panel {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; box-shadow: 0 24px 56px -20px rgba(22,33,62,0.2);
+    overflow: hidden;
+  }
+  .panel-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 15px 20px; border-bottom: 1px solid var(--line); background: #FBFBF9;
+  }
+  .panel-head-left { display: flex; align-items: center; gap: 10px; }
+  .dots { display: flex; gap: 6px; }
+  .dots span { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+  .panel-file { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: var(--grey); }
+  .panel-running {
+    font-family: 'JetBrains Mono', monospace; font-size: 11.5px;
+    color: var(--green); display: flex; align-items: center; gap: 6px; font-weight: 500;
+  }
+  .pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 1.8s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.3} }
+  .panel-body { padding: 16px 20px 22px; }
+  .step { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #F2F0EC; }
+  .step:last-child { border-bottom: none; }
+  .step-icon {
+    width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 11px; font-weight: 700; margin-top: 1px;
+  }
+  .step.done .step-icon  { background: var(--green); color: #fff; }
+  .step.active .step-icon { background: var(--amber); color: #fff; }
+  .step.wait .step-icon  { background: var(--line); color: var(--grey); font-size: 12px; }
+  .step-label { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+  .step.wait .step-label { color: var(--grey); font-weight: 500; }
+  .step-sub { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--grey); }
+  .step.active .step-sub { color: var(--slate); }
+
+  /* ── TRUST STRIP ── */
+  .trust { padding: 32px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .trust-item h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: var(--ink); }
+  .trust-item p  { font-size: 14px; }
+
+  /* ── IS/IS NOT ── */
+  .compare-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--line);
+    border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  }
+  .compare-col { background: #fff; padding: 30px; }
+  .compare-col.no { background: #FBFAF8; }
+  .compare-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; margin-bottom: 18px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .compare-col.yes .compare-label { color: var(--green); }
+  .compare-col.no  .compare-label { color: #A8462E; }
+  .compare-item { display: flex; gap: 10px; padding: 11px 0; border-top: 1px solid #F1F0EC; font-size: 14.5px; }
+  .compare-item:first-of-type { border-top: none; }
+  .compare-item b { font-weight: 600; color: var(--ink); }
+
+  /* ── EXAMPLES ── */
+  .examples-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .example-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 24px; display: flex; flex-direction: column; gap: 14px;
+  }
+  .example-tag {
+    display: inline-block; background: #EEF3FA; color: var(--slate);
+    font-size: 11.5px; font-weight: 600; padding: 4px 10px; border-radius: 5px;
+  }
+  .example-q { font-size: 14.5px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+  .example-meta { font-size: 13px; color: var(--grey); margin-top: auto; }
+  .example-dl {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 600; color: var(--slate); border-bottom: 1px solid var(--line);
+    padding-bottom: 2px; margin-top: 4px;
+  }
+
+  /* ── PRICING ── */
+  .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+  .price-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 13px;
+    padding: 32px 28px; position: relative;
+  }
+  .price-card.featured { border-color: var(--ink); box-shadow: 0 16px 44px -16px rgba(22,33,62,0.22); }
+  .price-badge {
+    position: absolute; top: -13px; right: 22px;
+    background: var(--ink); color: #fff;
+    font-size: 11.5px; font-weight: 600; padding: 4px 12px; border-radius: 5px;
+  }
+  .price-tier { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--slate); margin-bottom: 10px; }
+  .price-amt { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 500; margin-bottom: 8px; }
+  .price-desc { font-size: 13.5px; color: var(--grey); margin-bottom: 22px; line-height: 1.5; }
+  .price-features { list-style: none; margin-bottom: 26px; }
+  .price-features li { font-size: 14px; padding: 7px 0; display: flex; gap: 9px; border-top: 1px solid var(--line); }
+  .price-features li:first-child { border-top: none; }
+  .price-features li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; }
+  .price-btn {
+    display: block; text-align: center; padding: 13px; border-radius: 8px;
+    font-weight: 600; font-size: 14.5px; border: 1.5px solid var(--ink); transition: all .15s;
+  }
+  .price-btn:hover { background: var(--ink); color: #fff; }
+  .price-card.featured .price-btn { background: var(--ink); color: #fff; }
+  .price-card.featured .price-btn:hover { background: var(--slate); border-color: var(--slate); }
+  .repeat-note {
+    margin-top: 22px; padding: 16px 20px;
+    background: var(--warn-bg); border: 1px solid var(--warn-bdr); border-radius: 8px;
+    font-size: 14px; color: var(--warn-txt); font-weight: 500;
+  }
+
+  /* ── GUARANTEE BAND ── */
+  .guarantee-band { background: var(--ink); padding: 60px 0; }
+  .guarantee-inner { display: flex; align-items: flex-start; gap: 28px; max-width: 780px; }
+  .guarantee-icon {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(224,164,88,0.15);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .guarantee-band h2 { color: #fff; margin-bottom: 12px; font-size: 28px; }
+  .guarantee-band p  { color: #A8B3CC; max-width: 580px; font-size: 15.5px; }
+
+  /* ── REQUEST FORM ── */
+  .form-section { background: #fff; border-top: 1px solid var(--line); }
+  .form-card {
+    max-width: 680px; margin: 0 auto;
+    background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 44px;
+  }
+  .form-card h3 { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 500; margin-bottom: 6px; }
+  .form-card > p { font-size: 15px; color: var(--grey); margin-bottom: 28px; }
+  .form-submit {
+    width: 100%; background: var(--ink); color: #fff;
+    padding: 16px; border-radius: 9px; font-weight: 700; font-size: 16px;
+    margin-top: 6px; border: none; cursor: pointer; transition: background .15s;
+  }
+  .form-submit:hover { background: var(--slate); }
+  .form-footer-note { text-align: center; font-size: 13px; color: var(--grey); margin-top: 12px; }
+
+  @media (max-width: 900px) {
+    .hero-grid      { grid-template-columns: 1fr; }
+    .trust-grid     { grid-template-columns: 1fr; }
+    .compare-grid   { grid-template-columns: 1fr; }
+    .examples-grid  { grid-template-columns: 1fr; }
+    .pricing-grid   { grid-template-columns: 1fr; }
+    .form-card      { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-logo">AESOP <span>Solutions</span></a>
+    <ul class="nav-links">
+      <li><a href="#examples">Example reports</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="why-aesop.html">Why AESOP?</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="#request" class="nav-cta">Request a report</a>
+    <button class="nav-mobile-toggle" aria-label="Open menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 6H21M3 12H21M3 18H21" stroke="#16213E" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Expert analysis. AI speed. Consultant depth.</div>
+      <h1>The analytical rigour of a specialist consultancy. <em>At a fraction of the cost and time.</em></h1>
+      <p class="lead">Anyone can ask an AI a question. AESOP runs yours through a structured, multi-step analytical workflow — directed by an experienced analyst, cross-checked across multiple models, and delivered as a fully-referenced report you can act on and stand behind.</p>
+      <div class="guarantee-strap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6V12C4 17 7.5 20.5 12 22C16.5 20.5 20 17 20 12V6L12 2Z" stroke="#8A5A1E" stroke-width="2"/><path d="M9 12L11 14L15 10" stroke="#8A5A1E" stroke-width="2" stroke-linecap="round"/></svg>
+        Money-back guarantee — full refund within 7 days if it doesn't deliver
+      </div>
+      <div class="hero-cta-row">
+        <a href="#request" class="btn-primary">Request a report — from $2,000</a>
+        <a href="#examples" class="btn-ghost">See example reports →</a>
+      </div>
+    </div>
+
+    <!-- WORKFLOW PANEL -->
+    <div class="panel">
+      <div class="panel-head">
+        <div class="panel-head-left">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <div class="panel-file">report_0847.aesop</div>
+        </div>
+        <div class="panel-running"><div class="pulse"></div>step 4 of 12</div>
+      </div>
+      <div class="panel-body">
+        <div class="step done"><div class="step-icon">✓</div><div><div class="step-label">Actors &amp; stakeholder mapping</div><div class="step-sub">14 entities identified</div></div></div>
+        <div class="step done"><div class="step-icon">✓</div><div><div class="step-label">Environment &amp; landscape analysis</div><div class="step-sub">complete</div></div></div>
+        <div class="step done"><div class="step-icon">✓</div><div><div class="step-label">Sentiment &amp; baseline assessment</div><div class="step-sub">complete</div></div></div>
+        <div class="step active"><div class="step-icon">4</div><div><div class="step-label">Competing options analysis</div><div class="step-sub">running — cross-checking 2 models</div></div></div>
+        <div class="step wait"><div class="step-icon">5</div><div><div class="step-label">Risk &amp; exposure framing</div><div class="step-sub">queued</div></div></div>
+        <div class="step wait"><div class="step-icon">6</div><div><div class="step-label">Recommendations &amp; sources</div><div class="step-sub">queued</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="wrap trust-grid">
+    <div class="trust-item"><h4>Not a prompt. A process.</h4><p>AESOP runs your question through a structured, multi-step analytical workflow — not a single freeform AI response. The difference in output quality is significant.</p></div>
+    <div class="trust-item"><h4>Fully referenced</h4><p>Every report includes a sources section so you can trace every conclusion back to its origin.</p></div>
+    <div class="trust-item"><h4>Built on real methodology</h4><p>The workflows codify decades of analytical practice from military and commercial environments. That institutional knowledge is what separates AESOP from anything you can replicate with a general-purpose AI tool.</p></div>
+  </div>
+</div>
+
+<!-- IS / IS NOT -->
+<section class="section section-alt" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Why not just ask ChatGPT?</div>
+      <h2>Because a confident answer and a defensible one are not the same thing.</h2>
+      <p class="lead">General-purpose AI tools give you a plausible-sounding response in seconds. AESOP gives you a structured, referenced, human-validated analytical position you can act on, share with a board, or present to an investor — in days, not weeks, and at a fraction of traditional consultancy cost.</p>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-col yes">
+        <div class="compare-label">✓ What it is</div>
+        <div class="compare-item"><b>Human-directed</b> &nbsp;— an analyst runs and validates every report</div>
+        <div class="compare-item"><b>Multi-step</b> &nbsp;— dozens of structured analytical steps, not one prompt</div>
+        <div class="compare-item"><b>Multi-model</b> &nbsp;— cross-checked across more than one AI system</div>
+        <div class="compare-item"><b>Fully referenced</b> &nbsp;— every report ships with its sources</div>
+        <div class="compare-item"><b>Auditable</b> &nbsp;— you can see how every conclusion was reached</div>
+      </div>
+      <div class="compare-col no">
+        <div class="compare-label">✕ What it isn't</div>
+        <div class="compare-item"><b>A chatbot</b> &nbsp;— no back-and-forth conversation to manage</div>
+        <div class="compare-item"><b>Autonomous</b> &nbsp;— nothing ships without analyst review</div>
+        <div class="compare-item"><b>A single AI guess</b> &nbsp;— multiple models cross-check each other</div>
+        <div class="compare-item"><b>A black box</b> &nbsp;— no unexplained conclusions</div>
+        <div class="compare-item"><b>Generic</b> &nbsp;— built around your question, not a template answer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXAMPLE REPORTS -->
+<section class="section" id="examples">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">See it in action</div>
+      <h2>Example reports</h2>
+      <p class="lead">Illustrative of the type and depth of output. Choose the Public tier and your own anonymised report is added to this library — growing it with real work over time.</p>
+    </div>
+    <div class="examples-grid">
+      <div class="example-card">
+        <div><span class="example-tag">Market entry</span></div>
+        <div class="example-q">"Should we enter the Southeast Asian logistics market in the next 18 months?"</div>
+        <div>
+          <div class="example-meta">Multi-page report · actors map · entry-mode recommendation · sources</div>
+          <a href="#" class="example-dl">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 4V16M12 16L8 12M12 16L16 12" stroke="#3D5A80" stroke-width="2" stroke-linecap="round"/><path d="M4 20H20" stroke="#3D5A80" stroke-width="2" stroke-linecap="round"/></svg>
+            Download example
+          </a>
+        </div>
+      </div>
+      <div class="example-card">
+        <div><span class="example-tag">Competitor response</span></div>
+        <div class="example-q">"How will our two largest competitors likely respond to a 15% price cut?"</div>
+        <div>
+          <div class="example-meta">Multi-page report · scenario modelling · sequencing · sources</div>
+          <a href="#" class="example-dl">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 4V16M12 16L8 12M12 16L16 12" stroke="#3D5A80" stroke-width="2" stroke-linecap="round"/><path d="M4 20H20" stroke="#3D5A80" stroke-width="2" stroke-linecap="round"/></svg>
+            Download example
+          </a>
+        </div>
+      </div>
+      <div class="example-card">
+        <div><span class="example-tag">Regulatory exposure</span></div>
+        <div class="example-q">"Where are we exposed under the incoming data-residency rules, and what should we prioritise?"</div>
+        <div>
+          <div class="example-meta">Multi-page report · exposure map · prioritised steps · sources</div>
+          <a href="#" class="example-dl">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 4V16M12 16L8 12M12 16L16 12" stroke="#3D5A80" stroke-width="2" stroke-linecap="round"/><path d="M4 20H20" stroke="#3D5A80" stroke-width="2" stroke-linecap="round"/></svg>
+            Download example
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section-alt" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pricing</div>
+      <h2>One report. One price. No surprises.</h2>
+      <p class="lead">Pay when you submit your question. We may follow up with clarifying questions — only when we genuinely need them — then your report is issued.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Public</div>
+        <div class="price-amt">$2,000</div>
+        <div class="price-desc">Your anonymised report is added to our public library one week after delivery.</div>
+        <ul class="price-features">
+          <li>Full analytical report</li>
+          <li>Sources &amp; references section</li>
+          <li>Executive summary</li>
+          <li>Delivered within days</li>
+        </ul>
+        <a href="#request" class="price-btn">Request — $2,000</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-tier">Private</div>
+        <div class="price-amt">$5,000</div>
+        <div class="price-desc">Stays entirely private. One round of clarification and rework included.</div>
+        <ul class="price-features">
+          <li>Full analytical report</li>
+          <li>Sources &amp; references section</li>
+          <li>Executive summary</li>
+          <li>One round of rework included</li>
+          <li>Never published</li>
+        </ul>
+        <a href="#request" class="price-btn">Request — $5,000</a>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Tailored</div>
+        <div class="price-amt">$10,000</div>
+        <div class="price-desc">Incorporates your own data and context for the most specific, tailored result.</div>
+        <ul class="price-features">
+          <li>Everything in Private</li>
+          <li>Built using your own data</li>
+          <li>Turnaround agreed at order confirmation</li>
+        </ul>
+        <a href="#request" class="price-btn">Request — $10,000</a>
+      </div>
+    </div>
+    <div class="repeat-note">
+      <strong>Returning client?</strong> Once we've produced a private report for you, any further related report is charged at 50% of the standard tier price.
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section-alt" id="testimonials">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow" style="justify-content:center;">What our clients say</div>
+      <h2>Trusted by analysts and decision-makers</h2>
+      <p class="lead">We're building our public library of client feedback. In the meantime, here's what early users have told us.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+
+      <div style="background:#fff;border:1px solid var(--line);border-radius:13px;padding:32px 28px;position:relative;">
+        <div style="font-size:36px;color:var(--amber);line-height:1;margin-bottom:16px;">&ldquo;</div>
+        <p style="font-size:15px;color:var(--ink);line-height:1.65;margin-bottom:20px;font-style:italic;">[Client testimonial to be added — illustrative use case: investment thesis validation for a European PE fund]</p>
+        <div style="border-top:1px solid var(--line);padding-top:14px;">
+          <div style="font-size:14px;font-weight:700;color:var(--ink);">[Client name]</div>
+          <div style="font-size:13px;color:var(--grey);">[Title], [Organisation]</div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid var(--line);border-radius:13px;padding:32px 28px;position:relative;">
+        <div style="font-size:36px;color:var(--amber);line-height:1;margin-bottom:16px;">&ldquo;</div>
+        <p style="font-size:15px;color:var(--ink);line-height:1.65;margin-bottom:20px;font-style:italic;">[Client testimonial to be added — illustrative use case: market intelligence for a commercial real estate investor]</p>
+        <div style="border-top:1px solid var(--line);padding-top:14px;">
+          <div style="font-size:14px;font-weight:700;color:var(--ink);">[Client name]</div>
+          <div style="font-size:13px;color:var(--grey);">[Title], [Organisation]</div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid var(--line);border-radius:13px;padding:32px 28px;position:relative;">
+        <div style="font-size:36px;color:var(--amber);line-height:1;margin-bottom:16px;">&ldquo;</div>
+        <p style="font-size:15px;color:var(--ink);line-height:1.65;margin-bottom:20px;font-style:italic;">[Client testimonial to be added — illustrative use case: regulatory exposure analysis for a financial services firm]</p>
+        <div style="border-top:1px solid var(--line);padding-top:14px;">
+          <div style="font-size:14px;font-weight:700;color:var(--ink);">[Client name]</div>
+          <div style="font-size:13px;color:var(--grey);">[Title], [Organisation]</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- GUARANTEE BAND -->
+<section class="guarantee-band">
+  <div class="wrap">
+    <div class="guarantee-inner">
+      <div class="guarantee-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6V12C4 17 7.5 20.5 12 22C16.5 20.5 20 17 20 12V6L12 2Z" stroke="#E0A458" stroke-width="2"/><path d="M9 12L11 14L15 10" stroke="#E0A458" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <h2>If it doesn't deliver value, you don't pay for it.</h2>
+        <p>Full refund, no questions asked, within 7 days of delivery. We'd rather lose the fee than waste your time. <a href="why-aesop.html" style="color:#E0A458;">Read more about our guarantee →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REQUEST FORM -->
+<section class="section form-section" id="request">
+  <div class="wrap">
+    <div class="section-head center">
+      <div class="eyebrow" style="justify-content:center;">Get started</div>
+      <h2>Tell us your question.</h2>
+      <p class="lead">We'll show you what AESOP can do with it.</p>
+    </div>
+    <div class="form-card">
+      <h3>Request a report</h3>
+      <p>Complete the form below. Payment is collected next — we'll only follow up with clarifying questions if we genuinely need them before building your report.</p>
+
+      <div class="form-group">
+        <label for="name">Full name</label>
+        <input class="form-control" type="text" id="name" placeholder="Jane Smith">
+      </div>
+      <div class="form-row-2">
+        <div class="form-group">
+          <label for="email">Work email</label>
+          <input class="form-control" type="email" id="email" placeholder="jane@company.com">
+        </div>
+        <div class="form-group">
+          <label for="company">Company name</label>
+          <input class="form-control" type="text" id="company" placeholder="Company Ltd">
+        </div>
+      </div>
+
+      <!-- TWO-BOX QUESTION SECTION -->
+      <div class="form-group">
+        <label for="question">Your central question</label>
+        <textarea class="form-control" id="question" rows="3" placeholder="What is the core question you want answered? e.g. &quot;Should we enter the Southeast Asian market in the next 18 months?&quot;"></textarea>
+        <div class="hint">Be as specific as you can — a focused question produces a far more useful report than a broad one.</div>
+      </div>
+      <div class="form-group">
+        <label for="context">Amplifying detail <span style="font-weight:400;color:var(--grey)">(optional but recommended)</span></label>
+        <textarea class="form-control" id="context" rows="4" placeholder="What background, context, or constraints should we know? The more you tell us, the more tailored your report will be.&#10;&#10;e.g. We operate in the B2B SaaS space, primarily serving mid-market financial services firms. Our main concern is whether local regulations and competitor positioning make entry viable within our 18-month investment window."></textarea>
+        <div class="hint">Include industry context, key competitors, specific concerns, or any data you'd like us to incorporate.</div>
+      </div>
+
+      <!-- GATING -->
+      <div class="form-group">
+        <label>Verification <span style="font-weight:400;color:var(--grey)">— at least one required</span></label>
+        <div class="form-row-2">
+          <div class="gate-box">
+            <h5>Company affiliation</h5>
+            <input class="form-control" type="text" placeholder="Company registration no.">
+          </div>
+          <div class="gate-box">
+            <h5>LinkedIn profile</h5>
+            <input class="form-control" type="text" placeholder="linkedin.com/in/...">
+          </div>
+        </div>
+        <div class="hint">You're welcome to complete both. We use this to ensure requests come from genuine organisations.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="tier">Report tier</label>
+        <select class="form-control" id="tier">
+          <option>Public — $2,000 (anonymised report added to our library)</option>
+          <option selected>Private — $5,000 (never published, one round of rework)</option>
+          <option>Tailored — $10,000 (incorporates your own data)</option>
+        </select>
+      </div>
+
+      <button class="form-submit">Continue to payment →</button>
+      <div class="form-footer-note">Secured by Stripe · 7-day money-back guarantee · Data processed under UK GDPR</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">AESOP <span>Solutions</span></div>
+        <p>Expert analytical reports, powered by AESOP and delivered by experienced analysts. A service of Integrity Defence Solutions UK Ltd.</p>
+        <p style="margin-top:8px;font-size:12.5px;color:var(--grey);">AESOP is powered by the AI-Enabled Situation and Operations Planning platform.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Reports</h5>
+        <ul>
+          <li><a href="#examples">Example reports</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#request">Request a report</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>About</h5>
+        <ul>
+          <li><a href="why-aesop.html">Why AESOP?</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="privacy.html">Privacy policy</a></li>
+          <li><a href="terms.html">Terms &amp; conditions</a></li>
+          <li><a href="cookies.html">Cookie policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>Integrity Defence Solutions UK Ltd · Company No. [COMPANY REG NO] · Registered in England &amp; Wales</div>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
