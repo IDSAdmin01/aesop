@@ -1,331 +1,450 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — AESOP Solutions</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
 <style>
-/* ============================================
-   AESOP Solutions — Shared Design System
-   Concept 1 (Analyst's Desk) + Concept 2 nav
-   ============================================ */
-
-
-:root {
-  --bg:       #FAFAF8;
-  --ink:      #16213E;
-  --slate:    #3D5A80;
-  --amber:    #E0A458;
-  --grey:     #6B7B8C;
-  --green:    #2D9D78;
-  --line:     #E4E1DA;
-  --panel:    #FFFFFF;
-  --warn-bg:  #FFF7EA;
-  --warn-bdr: #F0D9AE;
-  --warn-txt: #8A5A1E;
-  --draft-bg: #FFF3CD;
-  --draft-bdr:#FFD966;
-}
-
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
-
-.wrap { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
-.wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 32px; }
-
-/* ── TYPOGRAPHY ── */
-h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 500; line-height: 1.1; letter-spacing: -0.01em; }
-h1 { font-size: clamp(36px, 5vw, 52px); }
-h2 { font-size: clamp(28px, 3.5vw, 36px); }
-h3 { font-size: 22px; }
-p  { color: var(--grey); line-height: 1.65; }
-.lead { font-size: 18px; color: var(--grey); line-height: 1.7; }
-
-/* ── NAV (Concept 2 structure, Concept 1 palette) ── */
-.site-nav {
-  border-bottom: 1px solid var(--line);
-  background: var(--bg);
-  position: sticky; top: 0; z-index: 100;
-}
-.site-nav .wrap {
-  display: flex; align-items: center;
-  justify-content: space-between;
-  padding-top: 20px; padding-bottom: 20px;
-}
-.nav-logo {
-  font-family: 'Inter', sans-serif;
-  font-weight: 800; font-size: 19px;
-  letter-spacing: -0.02em; color: var(--ink);
-}
-.nav-logo span { color: var(--slate); }
-.nav-links {
-  display: flex; gap: 34px;
-  font-size: 14.5px; color: var(--grey); font-weight: 500;
-  list-style: none;
-}
-.nav-links a:hover { color: var(--ink); }
-.nav-cta {
-  background: var(--ink); color: #fff;
-  padding: 10px 20px; border-radius: 7px;
-  font-size: 13.5px; font-weight: 600;
-  transition: background .15s;
-}
-.nav-cta:hover { background: var(--slate); }
-.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
-
-/* ── FOOTER ── */
-.site-footer {
-  border-top: 1px solid var(--line);
-  padding: 40px 0 32px;
-  margin-top: 80px;
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 36px;
-}
-.footer-brand .nav-logo { margin-bottom: 10px; }
-.footer-brand p { font-size: 13.5px; color: var(--grey); line-height: 1.55; }
-.footer-col h5 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink); margin-bottom: 14px; }
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-.footer-col ul a { font-size: 14px; color: var(--grey); }
-.footer-col ul a:hover { color: var(--ink); }
-.footer-bottom {
-  border-top: 1px solid var(--line); padding-top: 24px;
-  display: flex; justify-content: space-between; align-items: center;
-  font-size: 13px; color: var(--grey);
-}
-.footer-legal { display: flex; gap: 20px; }
-.footer-legal a { color: var(--grey); }
-.footer-legal a:hover { color: var(--ink); }
-
-/* ── BUTTONS ── */
-.btn-primary {
-  display: inline-block; background: var(--ink); color: #fff;
-  padding: 15px 28px; border-radius: 7px; font-weight: 600; font-size: 15.5px;
-  transition: background .15s; border: none; cursor: pointer;
-}
-.btn-primary:hover { background: var(--slate); }
-.btn-outline {
-  display: inline-block; color: var(--ink);
-  padding: 14px 28px; border-radius: 7px; font-weight: 600; font-size: 15px;
-  border: 1.5px solid var(--ink); transition: all .15s;
-}
-.btn-outline:hover { background: var(--ink); color: #fff; }
-
-/* ── GUARANTEE STRAP ── */
-.guarantee-strap {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--warn-bg); border: 1px solid var(--warn-bdr);
-  padding: 10px 16px; border-radius: 8px;
-  font-size: 14px; font-weight: 600; color: var(--warn-txt);
-}
-
-/* ── EYEBROW ── */
-.eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 13px; font-weight: 600; color: var(--slate);
-  letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px;
-}
-.eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
-
-/* ── SECTIONS ── */
-.section { padding: 88px 0; }
-.section-alt { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.section-dark { background: var(--ink); padding: 64px 0; }
-.section-head { max-width: 640px; margin-bottom: 48px; }
-.section-head.center { text-align: center; margin: 0 auto 48px; }
-.section-head h2 { margin-bottom: 14px; }
-
-/* ── FORMS ── */
-.form-group { margin-bottom: 20px; }
-.form-group label { display: block; font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 7px; }
-.form-group .hint { font-size: 12.5px; color: var(--grey); margin-top: 6px; }
-.form-control {
-  width: 100%; border: 1.5px solid var(--line); border-radius: 8px;
-  padding: 13px 15px; font-family: 'Inter', sans-serif; font-size: 14.5px;
-  background: #fff; color: var(--ink); transition: border-color .15s;
-}
-.form-control:focus { outline: none; border-color: var(--slate); }
-textarea.form-control { min-height: 110px; resize: vertical; }
-.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.gate-box {
-  border: 1.5px dashed var(--line); border-radius: 10px; padding: 18px;
-  background: #fff;
-}
-.gate-box h5 { font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
-.gate-or { text-align: center; font-size: 12.5px; color: var(--grey); font-weight: 600; letter-spacing: 0.03em; padding: 4px 0; }
-
-/* ── DRAFT BANNER ── */
-.draft-banner {
-  background: var(--draft-bg); border: 1.5px solid var(--draft-bdr);
-  padding: 14px 20px; border-radius: 8px; margin-bottom: 32px;
-  font-size: 14px; font-weight: 600; color: #7A5C00;
-  display: flex; align-items: flex-start; gap: 10px;
-}
-
-/* ── PROSE (for legal/content pages) ── */
-.prose h2 { font-size: 22px; margin: 40px 0 14px; }
-.prose h3 { font-size: 17px; font-family: 'Inter', sans-serif; font-weight: 700; margin: 28px 0 10px; color: var(--ink); }
-.prose p  { color: var(--grey); margin-bottom: 16px; }
-.prose ul, .prose ol { padding-left: 24px; margin-bottom: 16px; color: var(--grey); }
-.prose li { margin-bottom: 8px; }
-.prose a  { color: var(--slate); text-decoration: underline; }
-.prose strong { color: var(--ink); font-weight: 600; }
-.prose table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px; }
-.prose th { background: var(--ink); color: #fff; padding: 10px 14px; text-align: left; font-size: 13px; }
-.prose td { padding: 10px 14px; border-bottom: 1px solid var(--line); color: var(--grey); vertical-align: top; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .nav-links, .nav-cta { display: none; }
-  .nav-mobile-toggle { display: block; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .form-row-2 { grid-template-columns: 1fr; }
-  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-}
-@media (max-width: 600px) {
-  .wrap, .wrap-narrow { padding: 0 20px; }
-  .footer-grid { grid-template-columns: 1fr; }
-}
-
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+h1
+	{margin-top:20.0pt;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	border:none;
+	padding:0cm;
+	font-size:16.0pt;
+	font-family:"Arial",sans-serif;
+	color:#16213E;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+.MsoChpDefault
+	{font-family:"Arial",sans-serif;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:54.0pt 63.0pt 54.0pt 63.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
 </style>
-<style>
-  .page-hero { padding: 64px 0 48px; border-bottom: 1px solid var(--line); }
-  .legal-body { padding: 56px 0 80px; }
-  .last-updated { font-size: 13.5px; color: var(--grey); margin-top: 8px; }
-</style>
+
 </head>
-<body>
 
-<nav class="site-nav">
-  <div class="wrap">
-    <a href="index.html" class="nav-logo">AESOP <span>Solutions</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html#examples">Example reports</a></li>
-      <li><a href="index.html#pricing">Pricing</a></li>
-      <li><a href="why-aesop.html">Why AESOP?</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <a href="index.html#request" class="nav-cta">Request a report</a>
-  </div>
-</nav>
+<body lang=EN-GB link="#0563C1" vlink="#96607D" style='word-wrap:break-word'>
 
-<section class="page-hero">
-  <div class="wrap-narrow">
-    <div class="eyebrow">Legal</div>
-    <h1>Privacy Policy</h1>
-    <div class="last-updated">Last updated: [DATE] · Effective: [DATE]</div>
-  </div>
-</section>
+<div class=WordSection1>
 
-<section class="legal-body">
-  <div class="wrap-narrow">
+<p class=MsoNormal style='margin-bottom:4.0pt'><b><span style='font-size:22.0pt;
+color:#16213E'>Privacy Policy</span></b></p>
 
-    <div class="prose">
+<p class=MsoNormal style='margin-bottom:3.0pt'><i><span style='color:#6B7B8C'>AESOP
+Answers � Integrity Defence Solutions UK Ltd</span></i></p>
 
-      <h2>1. Who we are</h2>
-      <p>This privacy policy applies to the AESOP Solutions website at aesop-solutions.co.uk and the report services provided through it.</p>
-      <p>The data controller is <strong>Integrity Defence Solutions UK Ltd</strong>, a company registered in England and Wales under company number <strong>15987740</strong>, with its registered office at <strong>Knoll House, Knoll Road, Camberley, Surrey, GU15 3SY</strong>.</p>
-      <p>We are registered with the Information Commissioner's Office (ICO) under registration number <strong>ZB914735</strong>. <strong></strong></p>
-      <p>If you have any questions about this policy or how we handle your data, please contact us at <a href="mailto:dpo@integrity-defence.co.uk">dpo@integrity-defence.co.uk</a>.</p>
+<div style='border:none;border-bottom:solid #CCCCCC 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
 
-      <h2>2. What data we collect and why</h2>
-      <p>We collect only the data we need to provide the report service and comply with our legal obligations. The table below sets out what we collect, why, and the lawful basis we rely on under UK GDPR.</p>
+<p class=MsoNormal style='margin-bottom:3.0pt;border:none;padding:0cm'><span
+style='font-size:10.0pt;color:#888888'>Last updated: 28-Jul-26, Effective: 28-Jul-26,
+Version 1.0</span></p>
 
-      <table>
-        <tr><th>Data</th><th>Purpose</th><th>Lawful basis</th></tr>
-        <tr><td>Name, email address</td><td>To identify you, communicate with you, and deliver your report</td><td>Contract performance (Article 6(1)(b))</td></tr>
-        <tr><td>Name, email address</td><td>To market our services to you</td><td>Legitimate interests (Article 6(1)(f))</td></tr>
-        <tr><td>Company name and address</td><td>To verify requests come from genuine organisations, market our services, and ensure compliance with applicable tax legislation</td><td>Contract performance (Article 6(1)(b)) and Legitimate interests (Article 6(1)(f))</td></tr>
-        <tr><td>VAT number, local tax ID, company registration number</td><td>To verify requests come from genuine organisations and ensure compliance with applicable tax legislation</td><td>Contract performance (Article 6(1)(b))</td></tr>
-        <tr><td>Company registration number or LinkedIn profile URL</td><td>To verify that requests come from genuine organisations (spam/fraud prevention)</td><td>Legitimate interests (Article 6(1)(f))</td></tr>
-        <tr><td>Your question and amplifying context</td><td>To produce your report</td><td>Contract performance (Article 6(1)(b))</td></tr>
-        <tr><td>Any documents you share with us</td><td>To incorporate your data into a Tailored report</td><td>Contract performance (Article 6(1)(b))</td></tr>
-        <tr><td>Payment data (processed by Stripe)</td><td>To take payment for your report</td><td>Contract performance (Article 6(1)(b))</td></tr>
-        <tr><td>Contact form submissions</td><td>To respond to your enquiry</td><td>Legitimate interests (Article 6(1)(f))</td></tr>
-      </table>
+</div>
 
-      <h2>3. Where your data is held</h2>
-      <p>The AESOP analytical platform used to produce your report is operated by Integrity Defence Solutions Inc. ("IDS Inc.") and SoSA Corp, on Amazon Web Services infrastructure hosted in the United States. However, the preparation of your report does not require any of your personal information to be transferred outside the UK. All personal data — including your name, email address, company details and any supporting context you provide — is stored and processed in the United Kingdom only, using UK-based systems and services. The information transferred to the United States is the anonymised analytical question only, and is therefore not considered to be a "restricted transfer" under UK GDPR.</p>
-      <p>Payment data is processed by Stripe Inc under its own terms. Stripe may process payment data outside the UK under its own data transfer safeguards, which we do not control.</p>
+<p class=MsoNormal style='margin-bottom:1.0pt'>&nbsp;</p>
 
-      <h2>4. Who we share your data with</h2>
-      <p>We do not sell your personal data. We do not share it with third parties for their marketing purposes. We may use your contact details to market our own services to you, on the basis of our legitimate interests — you can opt out at any time by contacting us at <a href="mailto:dpo@integrity-defence.co.uk">dpo@integrity-defence.co.uk</a>. We share data only in the following limited circumstances:</p>
-      <ul>
-        <li><strong>Integrity Defence Solutions Inc (IDS Inc)</strong> and <strong>SoSA Corp</strong> — operators of the AESOP analytical platform. They receive only the anonymised analytical question, with all personal and identifying information removed before transmission. They do not receive or process your personal data.</li>
-        <li><strong>Stripe Inc</strong> — our payment processor, acting as a data processor under its own terms. Stripe handles your payment card data; we never see or store your full card details. Stripe processes data in accordance with its own privacy policy.</li>
-        <li><strong>Our analysts and staff</strong> — who need access to your submission in order to produce your report.</li>
-        <li><strong>Legal obligation</strong> — if we are required to disclose data by law, court order, or regulatory requirement.</li>
-      </ul>
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
 
-      <h2>5. How long we keep your data</h2>
-      <p>We keep your personal data for as long as necessary to fulfil the purposes above and to comply with our legal obligations:</p>
-      <ul>
-        <li><strong>Report submissions and completed reports:</strong> retained for <em>5 years</em> from the date of delivery, then securely deleted.</li>
-        <li><strong>Payment records:</strong> retained for 7 years to comply with HMRC requirements.</li>
-        <li><strong>Contact enquiries:</strong> retained for <em>3 years</em> from the date of the enquiry, then deleted.</li>
-      </ul>
+<h1>1. Who we are</h1>
 
-      <h2>6. Anonymised reports</h2>
-      <p>If you choose the Public tier, we will publish an anonymised version of your report on our website one week after delivery. Before publication, we remove your name, company name, and any information that could — by reverse engineering — identify you or your organisation. The sector analysis and general recommendations are not removed, as these can reasonably apply to any organisation in that sector. If you have concerns about the anonymisation of your report, please contact us before the one-week window closes.</p>
+</div>
 
-      <h2>7. Your rights under UK GDPR</h2>
-      <p>You have the following rights regarding your personal data. To exercise any of them, contact us at <a href="mailto:dpo@integrity-defence.co.uk">dpo@integrity-defence.co.uk</a>. We will respond within one calendar month.</p>
-      <ul>
-        <li><strong>Right of access:</strong> to receive a copy of the personal data we hold about you.</li>
-        <li><strong>Right to rectification:</strong> to have inaccurate data corrected.</li>
-        <li><strong>Right to erasure:</strong> to have your data deleted, where no legal obligation requires us to retain it.</li>
-        <li><strong>Right to restrict processing:</strong> to limit how we use your data in certain circumstances.</li>
-        <li><strong>Right to data portability:</strong> to receive your data in a machine-readable format.</li>
-        <li><strong>Right to object:</strong> to object to processing based on legitimate interests.</li>
-      </ul>
-      <p>If you are not satisfied with our response, you have the right to lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a> or by calling 0303 123 1113.</p>
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>This privacy policy applies to the AESOP Answers website at
+</span><span style='color:#16213E'>aesop-answers.com</span><span
+style='color:#555555'> and the report services provided through it.</span></p>
 
-      <h2>8. Cookies</h2>
-      <p>We use only strictly necessary cookies to support the operation of this website (for example, to maintain your session during the payment process). We do not use analytics, advertising, or tracking cookies. For more detail, see our <a href="cookies.html">Cookie Policy</a>.</p>
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>The data controller is </span><b><span style='color:#16213E'>Integrity
+Defence Solutions UK Ltd</span></b><span style='color:#555555'>, a company
+registered in England and Wales under company number </span><b><span
+style='color:#16213E'>15987740</span></b><span style='color:#555555'>, with its
+registered office at </span><b><span style='color:#16213E'>Knoll House, Knoll
+Road, Camberley, Surrey, GU15 3SY, United Kingdom</span></b><span
+style='color:#555555'>.</span></p>
 
-      <h2>9. Changes to this policy</h2>
-      <p>We may update this policy from time to time. When we do, we will update the "Last updated" date at the top and, where the changes are significant, notify you by email if you have an active order with us.</p>
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>We are registered with the Information Commissioner's
+Office (ICO) under registration number </span><b><span style='color:#16213E'>ZB914735</span></b><span
+style='color:#16213E'>.</span></p>
 
-      <h2>10. Contact</h2>
-      <p>For any questions about this privacy policy or your personal data, contact us at <a href="mailto:dpo@integrity-defence.co.uk">dpo@integrity-defence.co.uk</a> or write to us at our registered address above.</p>
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>If you have any questions about this policy or how we
+handle your data, please contact us at </span><b><span style='color:#16213E'>dpo@integrity-defence.co.uk</span></b><span
+style='color:#555555'>.</span></p>
 
-    </div>
-  </div>
-</section>
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand"><div class="nav-logo">AESOP <span>Solutions</span></div><p>Expert analytical reports, powered by AESOP and delivered by experienced analysts. A service of Integrity Defence Solutions UK Ltd.</p></div>
-      <div class="footer-col"><h5>Reports</h5><ul><li><a href="index.html#examples">Example reports</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#request">Request a report</a></li></ul></div>
-      <div class="footer-col"><h5>About</h5><ul><li><a href="why-aesop.html">Why AESOP?</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div class="footer-col"><h5>Legal</h5><ul><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms &amp; conditions</a></li><li><a href="cookies.html">Cookie policy</a></li></ul></div>
-    </div>
-    <div class="footer-bottom">
-      <div>Integrity Defence Solutions UK Ltd · Company No. 15987740 · Registered in England &amp; Wales</div>
-      <div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="cookies.html">Cookies</a></div>
-    </div>
-  </div>
-</footer>
+<h1 style='text-align:justify'>2. What data we collect and why</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>We collect only the data we need to provide the report
+service and comply with our legal obligations.</span></p>
+
+<p class=MsoNormal style='margin-bottom:4.0pt'>&nbsp;</p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=643
+ style='width:481.9pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=214 valign=top style='width:160.6pt;border:solid #CCCCCC 1.0pt;
+  background:#16213E;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><b><span style='font-size:9.5pt;color:white'>Data</span></b></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border:solid #CCCCCC 1.0pt;
+  border-left:none;background:#16213E;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><b><span style='font-size:9.5pt;color:white'>Purpose</span></b></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border:solid #CCCCCC 1.0pt;
+  border-left:none;background:#16213E;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><b><span style='font-size:9.5pt;color:white'>Lawful basis</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=214 valign=top style='width:160.6pt;border:solid #CCCCCC 1.0pt;
+  border-top:none;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>Name &amp; email
+  address</span></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>To identify
+  you, communicate with you (including marketing our services) and deliver your
+  report</span></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  background:#F7F6F3;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>Contract
+  performance (Art 6(1)(b))</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=214 valign=top style='width:160.6pt;border:solid #CCCCCC 1.0pt;
+  border-top:none;background:#F7F6F3;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>Company name
+  &amp; address</span></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  background:#F7F6F3;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>To verify
+  requests come from genuine organisations, market our services and to ensure
+  compliance with UK and local tax legislation</span></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>Contract
+  performance (Art 6(1)(b))</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=214 valign=top style='width:160.6pt;border:solid #CCCCCC 1.0pt;
+  border-top:none;background:#F7F6F3;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>VAT number,
+  local tax ID &amp; company registration number</span></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  background:#F7F6F3;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>To verify
+  requests come from genuine organisations and to ensure compliance with UK and
+  local tax legislation </span></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>Contract
+  performance (Art 6(1)(b))</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=214 valign=top style='width:160.6pt;border:solid #CCCCCC 1.0pt;
+  border-top:none;background:#F7F6F3;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>LinkedIn URL</span></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  background:#F7F6F3;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>To verify
+  requests come from genuine individuals &amp; organisations</span></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>Contract
+  performance (Art 6(1)(b))</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=214 valign=top style='width:160.6pt;border:solid #CCCCCC 1.0pt;
+  border-top:none;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>Your question
+  and context</span></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>To produce
+  your report</span></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  background:#F7F6F3;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>Contract
+  performance (Art 6(1)(b))</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=214 valign=top style='width:160.6pt;border:solid #CCCCCC 1.0pt;
+  border-top:none;background:#F7F6F3;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>Documents you
+  share (Tailored tier)</span></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  background:#F7F6F3;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>To
+  incorporate your data into the report</span></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>Contract
+  performance (Art 6(1)(b))</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=214 valign=top style='width:160.6pt;border:solid #CCCCCC 1.0pt;
+  border-top:none;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>Payment data
+  (via Stripe)</span></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>To take
+  payment for your report</span></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  background:#F7F6F3;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>Contract
+  performance (Art 6(1)(b))</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=214 valign=top style='width:160.6pt;border:solid #CCCCCC 1.0pt;
+  border-top:none;background:#F7F6F3;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>Contact form
+  submissions</span></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  background:#F7F6F3;padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>To respond to
+  your enquiry</span></p>
+  </td>
+  <td width=214 valign=top style='width:160.65pt;border-top:none;border-left:
+  none;border-bottom:solid #CCCCCC 1.0pt;border-right:solid #CCCCCC 1.0pt;
+  padding:4.0pt 6.0pt 4.0pt 6.0pt'>
+  <p class=MsoNormal><span style='font-size:10.0pt;color:#333333'>Contract
+  performance (Art 6(1)(b))</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-bottom:4.0pt'>&nbsp;</p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>3. International data transfers</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>The AESOP analytical platform used to produce your report
+is operated by Integrity Defence Solutions Inc. (&quot;IDS Inc&quot;), our
+parent company, on Amazon Web Services infrastructure hosted in the United
+States. However, the preparation of your report does not require any of your
+personal information to be transferred outside the UK and therefore the
+information transferred to the United States is not considered to be a
+�restricted transfer� under UK GDPR.</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>Payment data is processed by Stripe Inc. in accordance
+with Stripe's own privacy policy and data transfer safeguards.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>4. Who we share your data with</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>We do not sell your personal data. We do not share it
+with third parties for marketing. We share data only in the following limited
+circumstances:</span></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-align:justify;text-indent:-14.0pt'>�<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><b>Stripe
+Inc.</b><span style='color:#555555'> � our payment processor, acting as a data
+processor under its own terms. Stripe handles your payment card data; we never
+see or store your full card details.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-align:justify;text-indent:-14.0pt'>�<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><b>Our
+analysts and staff</b><span style='color:#555555'> � who need access to your
+submission in order to produce your report.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-align:justify;text-indent:-14.0pt'>�<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><b>Legal
+obligation</b><span style='color:#555555'> � if we are required to disclose
+data by law, court order, or regulatory requirement.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>5. How long we keep your data</h1>
+
+</div>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-align:justify;text-indent:-14.0pt'>�<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><b>Report
+submissions and completed reports:</b><span style='color:#555555'> retained for
+5 years from the date of delivery, then securely deleted.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-align:justify;text-indent:-14.0pt'>�<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><b>Payment
+records:</b><span style='color:#555555'> retained for 7 years to comply with
+HMRC requirements.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-align:justify;text-indent:-14.0pt'>�<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><b>Contact
+enquiries:</b><span style='color:#555555'> retained for 3 years from the date
+of the enquiry, then deleted.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>6. Anonymised reports</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>If you choose the Public tier, we will publish an
+anonymised version of your report on our website one week after delivery to
+you. Before publication, we remove your name, company name and any information
+that could � by reverse engineering � identify you or your organisation. The
+sector analysis and general recommendations are not removed.</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>If you have concerns about the anonymisation of your
+report, please contact us before the one-week window closes.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>7. Your rights under UK GDPR</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>You have the following rights regarding your personal
+data. To exercise any of them, contact us at </span><a
+href="mailto:dpo@integrity-defence.co.uk">dpo@integrity-defence.co.uk</a><span
+style='color:#555555'>.. We will respond within one calendar month.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-indent:-14.0pt'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b>Right of access:</b><span style='color:#555555'> to receive a copy of
+the personal data we hold about you.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-indent:-14.0pt'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b>Right to rectification:</b><span style='color:#555555'> to have
+inaccurate data corrected.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-indent:-14.0pt'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b>Right to restrict processing:</b><span style='color:#555555'> to
+limit how we use your data in certain circumstances.</span></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-indent:-14.0pt'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b>Right to object:</b><span style='color:#555555'> to object to
+processing based on legitimate interests.</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>If you are not satisfied with our response, you have the
+right to lodge a complaint with the Information Commissioner's Office (ICO) at
+ico.org.uk or by calling 0303 123 1113.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>8. Cookies</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>We use only strictly necessary cookies on this website.
+We do not use analytics, advertising, or tracking cookies. For more detail, see
+our Cookie Policy.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>9. Changes to this policy</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>We may update this policy from time to time. When we do,
+we will update the effective date and the version number above.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>10. Contact</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>For any questions about this privacy policy or your
+personal data, contact us at dpo@integrity-defence.co.uk.</span></p>
+
+</div>
 
 </body>
+
 </html>

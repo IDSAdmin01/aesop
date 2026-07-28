@@ -1,363 +1,526 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms &amp; Conditions — AESOP Solutions</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
 <style>
-/* ============================================
-   AESOP Solutions — Shared Design System
-   Concept 1 (Analyst's Desk) + Concept 2 nav
-   ============================================ */
-
-
-:root {
-  --bg:       #FAFAF8;
-  --ink:      #16213E;
-  --slate:    #3D5A80;
-  --amber:    #E0A458;
-  --grey:     #6B7B8C;
-  --green:    #2D9D78;
-  --line:     #E4E1DA;
-  --panel:    #FFFFFF;
-  --warn-bg:  #FFF7EA;
-  --warn-bdr: #F0D9AE;
-  --warn-txt: #8A5A1E;
-  --draft-bg: #FFF3CD;
-  --draft-bdr:#FFD966;
-}
-
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
-
-.wrap { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
-.wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 32px; }
-
-/* ── TYPOGRAPHY ── */
-h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 500; line-height: 1.1; letter-spacing: -0.01em; }
-h1 { font-size: clamp(36px, 5vw, 52px); }
-h2 { font-size: clamp(28px, 3.5vw, 36px); }
-h3 { font-size: 22px; }
-p  { color: var(--grey); line-height: 1.65; }
-.lead { font-size: 18px; color: var(--grey); line-height: 1.7; }
-
-/* ── NAV (Concept 2 structure, Concept 1 palette) ── */
-.site-nav {
-  border-bottom: 1px solid var(--line);
-  background: var(--bg);
-  position: sticky; top: 0; z-index: 100;
-}
-.site-nav .wrap {
-  display: flex; align-items: center;
-  justify-content: space-between;
-  padding-top: 20px; padding-bottom: 20px;
-}
-.nav-logo {
-  font-family: 'Inter', sans-serif;
-  font-weight: 800; font-size: 19px;
-  letter-spacing: -0.02em; color: var(--ink);
-}
-.nav-logo span { color: var(--slate); }
-.nav-links {
-  display: flex; gap: 34px;
-  font-size: 14.5px; color: var(--grey); font-weight: 500;
-  list-style: none;
-}
-.nav-links a:hover { color: var(--ink); }
-.nav-cta {
-  background: var(--ink); color: #fff;
-  padding: 10px 20px; border-radius: 7px;
-  font-size: 13.5px; font-weight: 600;
-  transition: background .15s;
-}
-.nav-cta:hover { background: var(--slate); }
-.nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
-
-/* ── FOOTER ── */
-.site-footer {
-  border-top: 1px solid var(--line);
-  padding: 40px 0 32px;
-  margin-top: 80px;
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 36px;
-}
-.footer-brand .nav-logo { margin-bottom: 10px; }
-.footer-brand p { font-size: 13.5px; color: var(--grey); line-height: 1.55; }
-.footer-col h5 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink); margin-bottom: 14px; }
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-.footer-col ul a { font-size: 14px; color: var(--grey); }
-.footer-col ul a:hover { color: var(--ink); }
-.footer-bottom {
-  border-top: 1px solid var(--line); padding-top: 24px;
-  display: flex; justify-content: space-between; align-items: center;
-  font-size: 13px; color: var(--grey);
-}
-.footer-legal { display: flex; gap: 20px; }
-.footer-legal a { color: var(--grey); }
-.footer-legal a:hover { color: var(--ink); }
-
-/* ── BUTTONS ── */
-.btn-primary {
-  display: inline-block; background: var(--ink); color: #fff;
-  padding: 15px 28px; border-radius: 7px; font-weight: 600; font-size: 15.5px;
-  transition: background .15s; border: none; cursor: pointer;
-}
-.btn-primary:hover { background: var(--slate); }
-.btn-outline {
-  display: inline-block; color: var(--ink);
-  padding: 14px 28px; border-radius: 7px; font-weight: 600; font-size: 15px;
-  border: 1.5px solid var(--ink); transition: all .15s;
-}
-.btn-outline:hover { background: var(--ink); color: #fff; }
-
-/* ── GUARANTEE STRAP ── */
-.guarantee-strap {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--warn-bg); border: 1px solid var(--warn-bdr);
-  padding: 10px 16px; border-radius: 8px;
-  font-size: 14px; font-weight: 600; color: var(--warn-txt);
-}
-
-/* ── EYEBROW ── */
-.eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 13px; font-weight: 600; color: var(--slate);
-  letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px;
-}
-.eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
-
-/* ── SECTIONS ── */
-.section { padding: 88px 0; }
-.section-alt { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.section-dark { background: var(--ink); padding: 64px 0; }
-.section-head { max-width: 640px; margin-bottom: 48px; }
-.section-head.center { text-align: center; margin: 0 auto 48px; }
-.section-head h2 { margin-bottom: 14px; }
-
-/* ── FORMS ── */
-.form-group { margin-bottom: 20px; }
-.form-group label { display: block; font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 7px; }
-.form-group .hint { font-size: 12.5px; color: var(--grey); margin-top: 6px; }
-.form-control {
-  width: 100%; border: 1.5px solid var(--line); border-radius: 8px;
-  padding: 13px 15px; font-family: 'Inter', sans-serif; font-size: 14.5px;
-  background: #fff; color: var(--ink); transition: border-color .15s;
-}
-.form-control:focus { outline: none; border-color: var(--slate); }
-textarea.form-control { min-height: 110px; resize: vertical; }
-.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.gate-box {
-  border: 1.5px dashed var(--line); border-radius: 10px; padding: 18px;
-  background: #fff;
-}
-.gate-box h5 { font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
-.gate-or { text-align: center; font-size: 12.5px; color: var(--grey); font-weight: 600; letter-spacing: 0.03em; padding: 4px 0; }
-
-/* ── DRAFT BANNER ── */
-.draft-banner {
-  background: var(--draft-bg); border: 1.5px solid var(--draft-bdr);
-  padding: 14px 20px; border-radius: 8px; margin-bottom: 32px;
-  font-size: 14px; font-weight: 600; color: #7A5C00;
-  display: flex; align-items: flex-start; gap: 10px;
-}
-
-/* ── PROSE (for legal/content pages) ── */
-.prose h2 { font-size: 22px; margin: 40px 0 14px; }
-.prose h3 { font-size: 17px; font-family: 'Inter', sans-serif; font-weight: 700; margin: 28px 0 10px; color: var(--ink); }
-.prose p  { color: var(--grey); margin-bottom: 16px; }
-.prose ul, .prose ol { padding-left: 24px; margin-bottom: 16px; color: var(--grey); }
-.prose li { margin-bottom: 8px; }
-.prose a  { color: var(--slate); text-decoration: underline; }
-.prose strong { color: var(--ink); font-weight: 600; }
-.prose table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px; }
-.prose th { background: var(--ink); color: #fff; padding: 10px 14px; text-align: left; font-size: 13px; }
-.prose td { padding: 10px 14px; border-bottom: 1px solid var(--line); color: var(--grey); vertical-align: top; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .nav-links, .nav-cta { display: none; }
-  .nav-mobile-toggle { display: block; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .form-row-2 { grid-template-columns: 1fr; }
-  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-}
-@media (max-width: 600px) {
-  .wrap, .wrap-narrow { padding: 0 20px; }
-  .footer-grid { grid-template-columns: 1fr; }
-}
-
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+h1
+	{margin-top:20.0pt;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	border:none;
+	padding:0cm;
+	font-size:16.0pt;
+	font-family:"Arial",sans-serif;
+	color:#16213E;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+.MsoChpDefault
+	{font-family:"Arial",sans-serif;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:54.0pt 63.0pt 54.0pt 63.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
 </style>
-<style>
-  .page-hero { padding: 64px 0 48px; border-bottom: 1px solid var(--line); }
-  .legal-body { padding: 56px 0 80px; }
-  .last-updated { font-size: 13.5px; color: var(--grey); margin-top: 8px; }
-</style>
+
 </head>
-<body>
 
-<nav class="site-nav">
-  <div class="wrap">
-    <a href="index.html" class="nav-logo">AESOP <span>Solutions</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html#examples">Example reports</a></li>
-      <li><a href="index.html#pricing">Pricing</a></li>
-      <li><a href="why-aesop.html">Why AESOP?</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <a href="index.html#request" class="nav-cta">Request a report</a>
-  </div>
-</nav>
+<body lang=EN-GB link="#0563C1" vlink="#96607D" style='word-wrap:break-word'>
 
-<section class="page-hero">
-  <div class="wrap-narrow">
-    <div class="eyebrow">Legal</div>
-    <h1>Terms &amp; Conditions</h1>
-    <div class="last-updated">Last updated: [DATE] · Effective: [DATE]</div>
-  </div>
-</section>
+<div class=WordSection1>
 
-<section class="legal-body">
-  <div class="wrap-narrow">
+<p class=MsoNormal style='margin-bottom:4.0pt'><b><span style='font-size:22.0pt;
+color:#16213E'>Terms &amp; Conditions</span></b></p>
 
-    
+<p class=MsoNormal style='margin-bottom:3.0pt'><i><span style='color:#6B7B8C'>AESOP
+Answers � Integrity Defence Solutions UK Ltd</span></i></p>
 
-    <div class="prose">
+<div style='border:none;border-bottom:solid #CCCCCC 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
 
-      <h2>1. About us and these terms</h2>
-      <p>These Terms and Conditions ("Terms") govern your use of the AESOP Solutions website at aesop-solutions.co.uk and the purchase of analytical reports through it ("the Service").</p>
-      <p>The Service is provided by <strong>Integrity Defence Solutions UK Ltd</strong>, registered in England and Wales under company number <strong>15987740</strong>, with its registered office at <strong>Knoll House, Knoll Road, Camberley, Surrey, GU15 3SY</strong> ("we", "us", "our").</p>
-      <p>These Terms govern the use of the AESOP Solutions website and the purchase of analytical reports through it ("the Service") by you the client; "you" and "your" will be construed accordingly.
+<p class=MsoNormal style='margin-bottom:3.0pt;border:none;padding:0cm'><span
+style='font-size:10.0pt;color:#888888'>Last updated: 28-Jul-26, Effective: 28-Jul-26,
+Version 1.0</span></p>
 
-By submitting a report request and making payment, you agree to these Terms. Please read them carefully before purchasing.</p>
+</div>
 
-      <h2>2. The service</h2>
-      <p>We provide analytical reports generated using our proprietary AESOP analytical workflow, directed and validated by human analysts ("Reports"). Reports are produced in response to a specific question or brief submitted by you through our website.</p>
-      <p>The Service is available in three tiers:</p>
-      <ul>
-        <li><strong>Public:</strong> A Report produced in response to your question and published on our website in anonymised form one week after delivery to you.</li>
-        <li><strong>Private:</strong> A Report produced in response to your question and delivered to you only — never published. Includes one round of clarification and rework.</li>
-        <li><strong>Tailored:</strong> A Report produced incorporating data and context you supply. Private. Turnaround confirmed at order.</li>
-      </ul>
-      <p>All prices are in United States dollars (USD). Payment is processed by Stripe.</p>
+<p class=MsoNormal style='margin-bottom:1.0pt'>&nbsp;</p>
 
-      <h2>3. Placing an order</h2>
-      <p>To place an order, you must complete the request form on our website and make payment through Stripe Checkout. Your order is confirmed when payment is successfully processed and you receive a confirmation email from us.</p>
-      <p>We reserve the right to decline any order at our discretion, in which case we will refund in full any payment made.</p>
-      <p>Following confirmation, we may contact you by email with clarifying questions about your brief. We will do this only where genuinely necessary to produce a useful Report. We will not begin producing the Report until we have the information we need.</p>
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
 
-      <h2>4. Delivery</h2>
-      <p>We aim to deliver Reports within 2 working days of receiving your confirmed submission (and any clarifying information we request). Tailored Reports may take longer. We will confirm an expected delivery window when we confirm your order.</p>
-      <p>Reports are delivered by email to the address you provided at the time of ordering. It is your responsibility to ensure the email address is correct.</p>
-      <p>Every Report will include: a front cover; a contents page with hyperlinks to each section; an executive summary; the full analysis; and a sources and references section.</p>
+<h1>1. About us and these terms</h1>
 
-      <h2>5. Money-back guarantee</h2>
-      <p>Every Report is covered by our money-back value guarantee. If, within 7 days of delivery of your Report, you consider that the Report has not delivered value to you, you may request a full refund by contacting us at <a href="mailto:dpo@integrity-defence.co.uk">dpo@integrity-defence.co.uk</a>.</p>
-      <p>We will process refunds immediately upon request, without requiring you to provide a reason. We welcome feedback where you are willing to share it, but it is not required.</p>
-      <p>Refunds are processed to the original payment method via Stripe and may take 5–10 business days to appear, depending on your card provider.</p>
+</div>
 
-      <h2>6. Intellectual property</h2>
-      <p>We own all intellectual property (IP) rights in the AESOP analytical workflows, the methodology used to produce Reports, and the format and structure of Reports.</p>
-      <p>Providing you do not request a refund for your Report, we assign the IP rights to the content of that Report on a partial basis (a partial assignment) on the terms below:</p>
-      <p>You may use your Report for your own internal business purposes and you may share it within your organisation. However, you must not:</p>
-      <ul>
-        <li>Resell, licence, sub-licence or commercially exploit the Report or any part of it to third parties;</li>
-        <li>Publish it as your own original work without attribution;</li>
-        <li>Use it as training data for any AI or machine learning system;</li>
-        <li>Use it to build or develop any product or service that competes with the Service;</li>
-        <li>Remove any attribution, references, or sourcing information from the Report.</li>
-      </ul>
-      <p>If you require IP assignment for uses beyond those described above, please contact us to discuss terms.</p>
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>These Terms and Conditions (&quot;Terms&quot;) govern the
+use of the AESOP Answers website at </span><b><span style='color:#16213E'>aesop-answers.com</span></b><span
+style='color:#555555'> and the purchase of analytical reports through it
+(&quot;the Service&quot;) by you the client and �you� and �your� will be
+construed accordingly.</span></p>
 
-      <h2>7. Limitation of liability</h2>
-      <p><strong>Reports are provided for informational and analytical purposes only. Nothing in any Report constitutes professional advice — legal, financial, investment, regulatory, or otherwise — and should not be relied upon as such.</strong></p>
-      <p>We make no warranty, express or implied, as to the accuracy, completeness, or fitness for a particular purpose of any Report. All information in Reports reflects the analysis of our analysts based on the information available at the time of production; it may not be current, complete, or applicable to your specific circumstances.</p>
-      <p>You rely on the content of any Report entirely at your own risk. All decisions made on the basis of a Report are your decisions alone, and we accept no responsibility for the outcomes of those decisions.</p>
-      <p>To the fullest extent permitted by law, our total liability to you in connection with any Report or these Terms shall not exceed the amount you paid for that Report.</p>
-      <p>Nothing in these Terms excludes or limits our liability for death or personal injury caused by our negligence, fraud or fraudulent misrepresentation, or any other liability that cannot be excluded or limited by law.</p>
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>The Service is provided by </span><b><span
+style='color:#16213E'>Integrity Defence Solutions UK Limited</span></b><span
+style='color:#555555'>, registered in England and Wales under company number </span><b><span
+style='color:#16213E'>15987740</span></b><span style='color:#555555'>, with its
+registered office at </span><b><span style='color:#16213E'>Knoll House, Knoll
+Road, Camberley, Surrey, GU15 3SY, United Kingdom</span></b><span
+style='color:#555555'> (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;).</span></p>
 
-      <h2>8. Sources and references</h2>
-      <p>Every Report includes a sources and references section. Sources are selected and cited by our analysts on the basis of relevance and reliability. We do not warrant the accuracy of third-party sources cited in Reports, and you should verify any source that you intend to rely on for a significant decision.</p>
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>By submitting a report request and making payment, you
+agree to these Terms. Please read them carefully before purchasing.</span></p>
 
-      <h2>9. Consumer cancellation rights</h2>
-      <p>Where you are a UK consumer (an individual purchasing outside the course of a business), the Consumer Contracts Regulations 2013 would normally give you a 14-day right to cancel a contract for services purchased online.</p>
-      <p>However, because each Report is produced specifically for you in response to your individual question and brief — and production begins promptly after your order is confirmed — each Report constitutes a bespoke, personalised service within the meaning of Regulation 28(1)(b) of the Consumer Contracts Regulations 2013. This means the 14-day cancellation right does not apply once production of your Report has commenced.</p>
-      <p>Your rights under our money-back guarantee (Section 5 above) apply regardless of this, and provide you with a meaningful remedy if you are not satisfied with your Report.</p>
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
 
+<h1>2. The service</h1>
 
-      <h2>10. Confidentiality</h2>
-      <p>You and we agree to keep the other's confidential information secret, except this will not apply to information which:</p>
-      <ul>
-        <li>was already in the receiving party's lawful possession before disclosure;</li>
-        <li>becomes publicly known through no fault of the receiving party; or</li>
-        <li>the receiving party can prove has been independently developed by it.</li>
-      </ul>
-      <p>You acknowledge and agree that all information which is not put into the public domain by us about the Service is confidential, including any information on the design, operation and performance of the Service.</p>
+</div>
 
-      <h2>11. Disclaimer of warranties</h2>
-      <p>Subject to the terms in Section 8, we warrant that we will provide the Service with a reasonable level of skill and care. Except as expressly set out in these Terms, we make no specific promises about the Service. We do not warrant that the Service will be secure, accurate, uninterrupted or error free, or that it will meet your specific requirements. We provide the Service "as is". To the extent permitted by law, we exclude all other warranties.</p>
+<p class=MsoNormal style='margin-bottom:8.0pt'><span style='color:#555555'>We
+provide analytical reports generated using our proprietary AESOP analytical
+workflow, directed and validated by human analysts (&quot;Reports&quot;).
+Reports are produced in response to a specific question or brief submitted by
+you through our website.</span></p>
 
-      <h2>12. Force majeure</h2>
-      <p>We shall not be responsible for any failure or delay in performance arising from circumstances beyond our reasonable control.</p>
+<p class=MsoNormal style='margin-bottom:8.0pt'><span style='color:#555555'>The
+Service is available in three tiers:</span></p>
 
-      <h2>13. Entire agreement</h2>
-      <p>These Terms constitute the whole legal agreement between you and us and supersede all prior agreements and understandings relating to the Service.</p>
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-indent:-14.0pt'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b>Public:</b><span style='color:#555555'> A Report produced in response
+to your question and published on our website in anonymised form one week after
+delivery to you.</span></p>
 
-      <h2>14. Waiver and severability</h2>
-      <p>If either party does not exercise or enforce any right or remedy under these Terms, this will not constitute a waiver of that right or remedy. If any provision of these Terms is found to be invalid, illegal or unenforceable, the remaining provisions shall continue in full force and effect.</p>
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-align:justify;text-indent:-14.0pt'>�<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><b>Private:</b><span
+style='color:#555555'> A Report produced in response to your question and
+delivered to you only and never published. Includes one round of clarification
+and rework.</span></p>
 
-      <h2>15. Anonymisation of Public-tier reports</h2>
-      <p>If you purchase a Public-tier Report, you agree that we may publish an anonymised version of your Report on our website one week after delivery to you. We will remove your name, company name, and any information that could identify you or your organisation before publication. The sector analysis, recommendations, and general findings will be published, as these are not organisation-specific.</p>
-      <p>If you have any concerns about the anonymisation of your Report, you must raise them with us before the one-week window closes. We cannot remove a Report from publication after it has been published on this basis.</p>
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-align:justify;text-indent:-14.0pt'>�<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span><b>Tailored:</b><span
+style='color:#555555'> A Report produced incorporating data and context you
+supply. Delivered to you only and never published. Turnaround confirmed at
+order.</span></p>
 
-      <h2>16. Data and privacy</h2>
-      <p>The AESOP analytical platform used to produce your report is operated by Integrity Defence Solutions Inc. ("IDS Inc."), our parent company, on Amazon Web Services infrastructure hosted in the United States. However, the preparation of your report does not require any of your personal information to be transferred outside the UK and therefore the information transferred to the United States is not considered to be a "restricted transfer" under UK GDPR.</p>
-      <p>Full details of how we handle your personal data are contained in our <a href="privacy.html">Privacy Policy</a>.</p>
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
 
-      <h2>17. Governing law and disputes</h2>
-      <p>These Terms are governed by the law of England and Wales. Any dispute arising out of or in connection with these Terms or the Service shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
-      <p>We will always try to resolve any dispute informally in the first instance. Please contact us at <a href="mailto:dpo@integrity-defence.co.uk">dpo@integrity-defence.co.uk</a> if you have a complaint.</p>
+<h1>3. Placing an order</h1>
 
-      <h2>18. Changes to these terms</h2>
-      <p>We may update these Terms from time to time. The version in force at the time you place your order is the version that applies to that order. When we update these Terms, we will update the "Last updated" date above.</p>
+</div>
 
-    </div>
-  </div>
-</section>
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>To place an order, you must complete the request form on
+our website and make payment through Stripe Checkout. Your order is confirmed
+when payment is successfully processed and you receive a confirmation email
+from us.</span></p>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand"><div class="nav-logo">AESOP <span>Solutions</span></div><p>Expert analytical reports, powered by AESOP and delivered by experienced analysts. A service of Integrity Defence Solutions UK Ltd.</p></div>
-      <div class="footer-col"><h5>Reports</h5><ul><li><a href="index.html#examples">Example reports</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#request">Request a report</a></li></ul></div>
-      <div class="footer-col"><h5>About</h5><ul><li><a href="why-aesop.html">Why AESOP?</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div class="footer-col"><h5>Legal</h5><ul><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms &amp; conditions</a></li><li><a href="cookies.html">Cookie policy</a></li></ul></div>
-    </div>
-    <div class="footer-bottom">
-      <div>Integrity Defence Solutions UK Ltd · Company No. 15987740 · Registered in England &amp; Wales</div>
-      <div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="cookies.html">Cookies</a></div>
-    </div>
-  </div>
-</footer>
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>We reserve the right to decline any order at our
+discretion, in which case we will refund in full any payment made.</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>Following confirmation, we may contact you by email with
+clarifying questions about your brief. We will do this only where genuinely
+necessary to produce a useful Report. We will not begin producing the Report
+until we have all the information we need.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>4. Delivery</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>We aim to deliver Reports within </span><span
+style='color:#16213E'>2 working days</span><span style='color:#555555'> of
+receiving your confirmed submission (and any clarifying information we
+request). Tailored Reports may take longer. We will confirm an expected
+delivery window when we confirm your order.</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>Reports are delivered by email to the address you
+provided at the time of ordering. It is your responsibility to ensure the email
+address is correct.</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>Every Report will include: a front cover; a contents page
+with hyperlinks to each section, an executive summary, the full analysis and a
+sources and references section.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>5. Money-back guarantee</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>Every Report is covered by our money-back value
+guarantee. If, within 7 days of delivery of your Report, you consider that the
+Report has not delivered value to you, you may request a full refund by contacting
+us at </span><span style='color:#16213E'>reports@aesop-answers.com</span><span
+style='color:#555555'>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>We will process refunds immediately upon request. We will
+though ask why you do not believe the Report has delivered value to you so we
+can learn and improve our service for the future. We welcome feedback where you
+are willing to share it, but it is not a pre-requisite for you to receive a
+refund.</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>Refunds are processed to the original payment method via
+Stripe and may take 5�10 business days to appear, depending on your card
+provider.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>6. Intellectual property</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>We own all intellectual property (IP) rights in the AESOP
+analytical workflows, the methodology used to produce Reports and the format
+and structure of Reports.</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>Providing you do not request a refund for your Report, we
+assign the IP rights to the content of that Report on a partial basis (a
+partial assignment) on the terms below:</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>You may use your Report for your own internal business
+purposes and you may share it within your organisation. However, you must not:</span></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-indent:-14.0pt'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='color:#555555'>Resell, licence, sub-licence or commercially
+exploit the Report or any part of it to third parties;</span></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-indent:-14.0pt'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='color:#555555'>Publish it as your own original work without
+attribution;</span></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-indent:-14.0pt'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='color:#555555'>Use it as training data for any AI or
+machine learning system;</span></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-indent:-14.0pt'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='color:#555555'>Use it to build or develop any product or
+service that competes with the Service;</span></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+4.0pt;margin-left:22.0pt;text-indent:-14.0pt'>�<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style='color:#555555'>Remove any attribution, references, or
+sourcing information from the Report.</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt'><span style='color:#555555'>If
+you require IP assignment for uses beyond those described above, please contact
+us to discuss terms.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>7. Confidentiality</h1>
+
+<h1 style='margin-top:0cm'><span style='font-size:11.0pt;color:#555555;
+font-weight:normal'>You and we agree to keep the other�s confidential
+information secret, except this will not apply to information which:</span></h1>
+
+</div>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm;
+margin-left:18.0pt;margin-right:0cm'>
+
+<h1 style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:
+36.0pt;text-indent:-36.0pt'><span style='font-size:11.0pt;color:#555555;
+font-weight:normal'>a)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:11.0pt;color:#555555;font-weight:normal'>was
+already in the receiving party�s lawful possession before disclosure by you or
+us;</span></h1>
+
+<h1 style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:
+36.0pt;text-indent:-36.0pt'><span style='font-size:11.0pt;color:#555555;
+font-weight:normal'>b)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:11.0pt;color:#555555;font-weight:normal'>becomes
+publicly known through no fault of the receiving party; or</span></h1>
+
+<h1 style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:
+36.0pt;text-indent:-36.0pt'><span style='font-size:11.0pt;color:#555555;
+font-weight:normal'>c)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:11.0pt;color:#555555;font-weight:normal'>the
+receiving party can prove has been independently developed by it.</span></h1>
+
+</div>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1 style='margin-top:0cm;text-align:justify'><span style='font-size:11.0pt;
+color:#555555;font-weight:normal'>Notwithstanding paragraph 7.b) above, you
+acknowledge and agree that all information which is not put into the public
+domain by us about the Service is confidential, including any information on
+the design, operation and performance of the Service.</span></h1>
+
+<h1>8. Disclaimer of warranties &amp; Limitation of liability</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><b><span
+style='color:#16213E'>Subject to the terms in this Section 8., we warrant that
+we will provide the Service with a reasonable level of skill of care.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><b><span
+style='color:#16213E'>Except as expressly set out in these Terms, neither
+Integrity Defence Solutions Limited not any of its suppliers, distributors or
+investors make any specific promises about the Service.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><b><span
+style='color:#16213E'>We do not warrant that any of our services will be
+secure, accurate, uninterrupted or error free or that these services will meet
+your specific requirements. We provide the Service �as is�. </span></b></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><b><span
+style='color:#16213E'>Some countries provide for certain warranties, such as
+the implied warranty of merchantability, fitness for a particular purpose and
+non-infringement. To the extent permitted by law, we exclude all warranties.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><b><span
+style='color:#16213E'>Reports are provided for informational and analytical
+purposes only. Nothing in any Report constitutes professional advice � legal,
+financial, investment, regulatory, or otherwise � and should not be relied upon
+as such.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><b><span
+style='color:#555555'>We make no warranty, express or implied, as to the
+accuracy, completeness or fitness for a particular purpose of any Report. All
+information in Reports is based on the information available at the time of
+production; it may not be current, complete, or applicable to your specific
+circumstances.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><b><span
+style='color:#555555'>You rely on the content of any Report entirely at your
+own risk. All decisions made on the basis of a Report are your decisions alone,
+and we accept no responsibility for the outcomes of those decisions.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt'><b><span style='color:#555555'>To
+the fullest extent permitted by law, our total liability to you in connection
+with any Report or these Terms shall not exceed the amount you paid for that
+Report.</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><b><span
+style='color:#555555'>Nothing in these Terms excludes or limits our liability
+for death or personal injury caused by our negligence, fraud or fraudulent
+misrepresentation, or any other liability that cannot be excluded or limited by
+law. Subject to this, we shall not be liable to you, whether in contract, tort
+(including negligence), breach of statutory duty or otherwise, arising in
+connection with our provision of the Service for:</span></b></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+8.0pt;margin-left:36.0pt;text-align:justify;text-indent:-18.0pt'><b><span
+style='color:#555555'>a)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></b><b>loss of revenue or profit;</b></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+8.0pt;margin-left:36.0pt;text-align:justify;text-indent:-18.0pt'><b><span
+style='color:#555555'>b)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></b><b>loss or damage to computers, devices or any software or
+date;</b></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+8.0pt;margin-left:36.0pt;text-align:justify;text-indent:-18.0pt'><b><span
+style='color:#555555'>c)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></b><b>loss or damage to goodwill; and/or</b></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
+8.0pt;margin-left:36.0pt;text-align:justify;text-indent:-18.0pt'><b><span
+style='color:#555555'>d)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></b><b>indirect, special, consequential, exemplary or punitive
+loss or damage.</b></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>9. Force Majeure</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>We shall not be responsible for anything beyond our
+reasonable control (�Force Majeure�).</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>10. Entire Agreement</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>These Terms constitute the whole legal agreement and
+understanding between you and us and supersede all prior agreements and understandings
+between you and us.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>11. Waiver</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>You agree that if either you or we do not exercise or
+enforce any legal right or remedy which is contained in these Terms (or which
+is available under any applicable law), this will not be taken to be a formal
+waiver of our rights and that those rights or remedies will still be available.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>12. Severability</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:black'>Each of the obligations contained in these Terms shall be
+construed as separate and severable obligations but, if at any time any one or
+more of the obligations is or becomes invalid illegal or unenforceable in any
+respect under law, but would be valid if some part thereof were deleted or the
+period or area of application reduced, such obligation shall apply with such
+modification as may be necessary to make it valid and effective and in any
+event the validity legality and enforceability of the remaining obligations
+shall not in any way be affected or thereby impaired.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>13. Sources and references</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>Every Report includes a sources and references section.
+Sources are selected and cited by our analysts on the basis of relevance and
+reliability. We do not warrant the accuracy of third-party sources cited in
+Reports and you should verify any source that you intend to rely on for any
+decisions you make.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>14. Consumer cancellation rights</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>Where you are a UK consumer (an individual purchasing
+outside the course of a business), the Consumer Contracts Regulations 2013
+would normally give you a 14-day right to cancel a contract for services
+purchased online.</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>However, because each Report is produced specifically for
+you in response to your individual question and brief � and production begins
+promptly after your order is confirmed � each Report constitutes a bespoke,
+personalised service within the meaning of Regulation 28(1)(b) of the Consumer
+Contracts Regulations 2013. This means the 14-day cancellation right does not
+apply once production of your Report has commenced.</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>Your rights under our money-back guarantee (Section 5
+above) apply regardless of this and provides you with a meaningful remedy if
+you are not satisfied with your Report.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>15. Anonymisation of Public-tier reports</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>If you purchase a Public-tier Report, you agree that we
+may publish an anonymised version of your Report on our website one week after
+delivery to you. We will remove your name, company name, and any information
+that could identify you or your organisation before publication. The sector
+analysis, recommendations and general findings will be published as these are
+not organisation-specific.</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>If you have any concerns about the anonymisation of your
+Report, you must raise them with us before the one-week window closes.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>16. Data Privacy and UK/US hosting</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>The AESOP analytical platform used to produce your report
+is operated by Integrity Defence Solutions Inc. (&quot;IDS Inc&quot;), our
+parent company, on Amazon Web Services infrastructure hosted in the United
+States. However, the preparation of your report does not require any of your
+personal information to be transferred outside the UK and therefore the
+information transferred to the United States is not considered to be a
+�restricted transfer� under UK GDPR.</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>Full details of how we handle your personal data are
+contained in our Privacy Policy.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>17. Governing law and disputes</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>These Terms are governed by the law of England and Wales.
+Any dispute or claim arising out of or in connection with these Terms or the
+Service shall be subject to the exclusive jurisdiction of the courts of England
+and Wales.</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt;text-align:justify'><span
+style='color:#555555'>The courts of England and Wales have exclusive
+jurisdiction to determine any dispute arising in connection with these Terms,
+including disputes relating to any non-contractual obligations</span></p>
+
+<p class=MsoNormal style='margin-bottom:8.0pt'><span style='color:#555555'>We
+will always try to resolve any dispute informally in the first instance. Please
+contact us at reports@aesop-answers.com if you have a complaint.</span></p>
+
+<div style='border:none;border-bottom:solid #E4E1DA 1.0pt;padding:0cm 0cm 4.0pt 0cm'>
+
+<h1>18. Changes to these Terms</h1>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:8.0pt'><span style='color:#555555'>We
+may update these Terms from time to time. The version in force at the time you
+place your order is the version that applies to that order.</span></p>
+
+</div>
 
 </body>
+
 </html>
